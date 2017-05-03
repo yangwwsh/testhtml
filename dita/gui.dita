@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//IBM//DTD DITA IBM Concept//EN"
+ "ibm-concept.dtd">
+<concept id="graphical-user-interfaces" xml:lang="en-us">
+<title>Graphical interfaces</title>
+<shortdesc>The <ph conref="../conrefs/conref_common.dita#common/idag2nd"></ph> provides
+two graphical interfaces: <ph
+conref="../conrefs/conref_common.dita#common/webGUI_basic"></ph> and <ph
+conref="../conrefs/conref_common.dita#common/webGUI_advanced"></ph>.</shortdesc>
+<conbody>
+<p>You can use both graphical interfaces to manage the <ph
+conref="../conrefs/conref_common.dita#common/idag2nd"/>, develop and troubleshoot services, and
+monitor status. However, the following tasks are available from only the <ph
+conref="../conrefs/conref_common.dita#common/webGUI_advanced"/>:<ul>
+<li>Creating and managing service patterns</li>
+<li audience="tenant" rev="rev760">Creating tenants.</li>
+</ul></p>
+<p>Independent of the graphical interface, both manage the configuration
+of objects. An object can reference another object that can, in turn,
+reference another object. For example, a service configuration references
+an XML manager that references a user agent. To meet your business-processing
+criteria and security requirements, the <ph
+conref="../conrefs/conref_common.dita#common/idag2nd"></ph> provides
+flexibility to manage the base configurations and their referenced
+configurations.</p>
+<p>Objects that you can configure on the <ph
+conref="../conrefs/conref_common.dita#common/idag2nd"></ph> range
+from simple to complex. An object is any entity that you configure
+on the <ph conref="../conrefs/conref_common.dita#common/idag2nd"></ph>.
+All objects provide an object view, or a generic configuration. However,
+many <tm tmtype="reg" trademark="DataPower">DataPower</tm> services
+provide an object view and a service view. For a <ph
+conref="../conrefs/conref_common.dita#common/mpgw"></ph>, <ph
+conref="../conrefs/conref_common.dita#common/wsp"></ph>, and <ph
+conref="../conrefs/conref_common.dita#common/webseal"></ph>, you can
+use patterns.</p>
+<ul>
+<li>The object view allows expert-level developers to build specific,
+complex, and detailed objects.</li>
+<li>The service view allows less-than-expert level developers to build
+basic objects. The service view is a wizard that steps the developer
+through the creation of an object. The service view might not include
+all configuration properties. The service view is available in only
+the <ph conref="../conrefs/conref_common.dita#common/webGUI_basic"></ph>.</li>
+<li>Patterns allow developers to create services from base service
+configurations. Patterns do not include all configuration properties
+to the pattern developer or the pattern deployer.</li>
+</ul>
+</conbody>
+</concept>
