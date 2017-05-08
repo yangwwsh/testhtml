@@ -3,7 +3,7 @@ IBM® Cloud Product Insights, an IBM Bluemix® service, allows you to connect yo
 
 //Need to update and rephrase in English words
 - hostName
-- installDirectory
+- installDirectory: this should be the directory where the DataPower Gateway is installed
 - instanceIdentifier
 - environmentType
 - startTime
@@ -19,7 +19,7 @@ IBM® Cloud Product Insights, an IBM Bluemix® service, allows you to connect yo
 - UPTIME
 - BOOTUPTIME
 - MEMORY_USAGE  
-- TOTAL_SYSTEM_MEMORY
+- TOTAL_SYSTEM_MEMORY: Total system memory
 - TOTAL_USED_MEMORY
 - TOTAL_FREE_MEMORY
 
@@ -45,6 +45,7 @@ To report DataPower registeration and usage data to the Product Insights service
 
 ## Results
 The DataPower registeration and usage data is sent to your Product Insights service instance.
+You should be able to view the data through your Product Insight Service instance on Bluemix.
 
 ## More information
 For details about how DataPower Gateway integrates with Product Insights, see the DataPower Gateway information on IBM Knowledge Center.
