@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+ "task.dtd">
+<task id="common" xml:lang="en-us">
+<!--Translators: Do not translate text in <title> elements.-->
+<title>Common source</title>
+<taskbody>
+<context>
+<dl>
+<dlentry>
+<dt>Product names</dt>
+<dd>
+<p><ph id="family"><tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="reg" trademark="DataPower">DataPower</tm> Gateways</ph><ph id="family2nd"><tm
+tmtype="reg" trademark="DataPower">DataPower</tm> Gateways</ph></p>
+<p><ph id="idag1st"><tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="reg" trademark="DataPower">DataPower</tm> Gateway</ph><ph id="idag2nd"><tm tmtype="reg"
+trademark="DataPower">DataPower</tm> Gateway</ph></p>
+<p><ph id="vefull"><tm tmtype="reg" trademark="IBM">IBM</tm>
+<tm tmtype="reg" trademark="DataPower">DataPower</tm> Gateway Virtual Edition</ph><ph id="ve"><tm
+tmtype="reg" trademark="DataPower">DataPower</tm> Gateway Virtual Edition</ph></p>
+<p><ph id="software1st"><tm tmtype="reg" trademark="DataPower"><tm tmtype="reg" trademark="IBM"
+>IBM</tm> DataPower</tm> Gateway for Developers</ph><ph id="software"><tm tmtype="reg"
+trademark="DataPower">DataPower</tm> Gateway for Developers</ph></p>
+</dd>
+</dlentry>
+<dlentry>
+<dt>Service names</dt>
+<dd>
+<p><ph id="apigw">API Gateway</ph></p>
+<p><ph id="gws">GatewayScript</ph><ph id="xslt-gws">stylesheet or GatewayScript file</ph></p>
+</dd>
+</dlentry>
+</dl>
+</context>
+</taskbody>
+<task id="commonsteps" xml:lang="en-us">
+<title>Referencing common steps</title>
+<taskbody>
+<context/>
+<steps>
+<step id="search_api">
+<cmd>In the search field, enter <userinput>API</userinput>.</cmd>
+</step>
+<step id="search_assembly">
+<cmd>In the search field, enter <userinput>assembly</userinput>.</cmd>
+</step>
+<step id="config_add">
+<cmd>Click <uicontrol>Add</uicontrol> or <uicontrol>New</uicontrol>.</cmd>
+</step>
+<step id="config_basicproperties">
+<cmd>Define the basic properties: Name, administrative state, and descriptive summary.</cmd>
+</step>
+<step id="config_name">
+<cmd>In the <uicontrol>Name</uicontrol> field, enter the name for the configuration.</cmd>
+</step>
+<step id="config_adminstate">
+<cmd>Set the administrative state of the configuration.</cmd>
+</step>
+<step id="config_comment">
+<cmd>In the <uicontrol>Comments</uicontrol> field, enter a descriptive summary.</cmd>
+</step>
+<step id="config_apply">
+<cmd>Click <uicontrol>Apply</uicontrol> to save the changes to the running configuration.</cmd>
+</step>
+<step id="config_saveconfig">
+<cmd>Click <uicontrol>Save Configuration</uicontrol> or <uicontrol>Save changes</uicontrol> to save
+the changes to the persisted configuration.</cmd>
+</step>
+<step>
+<cmd>Use in substeps.</cmd>
+<substeps>
+<substep id="config_add_substep">
+<cmd>Click <uicontrol>Add</uicontrol> or <uicontrol>New</uicontrol>.</cmd>
+</substep>
+<substep id="config_save_substep">
+<cmd>Click <uicontrol>Apply</uicontrol>.</cmd>
+</substep>
+<substep id="config_basicproperties_substep">
+<cmd>Define the basic properties: Name, administrative state, and descriptive summary.</cmd>
+</substep>
+<substep id="config_name_substep">
+<cmd>In the <uicontrol>Name</uicontrol> field, enter the name for the configuration.</cmd>
+</substep>
+<substep id="config_adminstate_substep">
+<cmd>Set the administrative state of the configuration.</cmd>
+</substep>
+<substep id="config_comment_substep">
+<cmd>In the <uicontrol>Comments</uicontrol> field, enter a descriptive summary.</cmd>
+</substep>
+<substep id="config_apply_substep">
+<cmd>Click <uicontrol>Apply</uicontrol> to save the changes to the running configuration.</cmd>
+</substep>
+<substep id="config_saveconfig_substep">
+<cmd>Click <uicontrol>Save Configuration</uicontrol> or <uicontrol>Save changes</uicontrol> to save
+the changes to the persisted configuration.</cmd>
+</substep>
+</substeps>
+</step>
+<step>
+<cmd>Use in ordered lists.</cmd>
+<info>
+<ol>
+<li id="config_addli">Click <uicontrol>Add</uicontrol> or <uicontrol>New</uicontrol>.</li>
+<li id="config_saveli">Click <uicontrol>Apply</uicontrol>.</li>
+<li id="config_nameli">In the <uicontrol>Name</uicontrol> field, enter the name for the
+configuration.</li>
+<li id="config_adminstateli">Set the administrative state of the configuration.</li>
+<li id="config_commentli">In the <uicontrol>Comments</uicontrol> field, enter a descriptive
+summary.</li>
+<li id="config_applyli">Click <uicontrol>Apply</uicontrol> to save the changes to the running
+configuration.</li>
+<li id="config_saveconfigli">Click <uicontrol>Save Configuration</uicontrol> or <uicontrol>Save
+changes</uicontrol> to save the changes to the persisted configuration.</li>
+</ol>
+</info>
+</step>
+</steps>
+</taskbody>
+</task>
+<task id="actionconfiguration" xml:lang="en-us">
+<title>Referencing action steps</title>
+<taskbody>
+<steps>
+<step id="action_dragadvanced">
+<cmd>Drag the <uicontrol>Advanced</uicontrol> icon to the configuration path.</cmd>
+</step>
+<step id="action_doubleclickadvanced">
+<cmd>Double-click the <uicontrol>Advanced</uicontrol> icon.</cmd>
+</step>
+<step id="action_advancedtab">
+<cmd>Click the <uicontrol>Advanced</uicontrol> tab.</cmd>
+</step>
+<step id="action_gs_enabledebug" importance="optional">
+<cmd>To enable debug for the action, click <uicontrol>Enable GatewayScript Debug</uicontrol>.</cmd>
+</step>
+<step id="action_gs_xformdebugstep">
+<cmd>Click <uicontrol>Enable GatewayScript Debug</uicontrol> to debug a <ph conref="#common/gws"/>
+program.</cmd>
+<info>The program can be called from a <codeph>gatewayscript</codeph> extension element or a
+<cmdname>gatewayscript()</cmdname> extension function in the stylesheet that you specify in the
+<uicontrol>Transform File</uicontrol> field.</info>
+</step>
+</steps>
+<postreq>
+<p id="lastaction">If this action is the last one for the rule, click <uicontrol>Apply
+Policy</uicontrol>. Otherwise, drag another icon to the configuration path.</p>
+</postreq>
+</taskbody>
+</task>
+</task>

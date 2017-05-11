@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Rate limiting" />
+<meta name="abstract" content="The API Gateway runs the API rate limit action to enforce the rate limit scheme that is defined for the target API or operation." />
+<meta name="Description" content="The API Gateway runs the API rate limit action to enforce the rate limit scheme that is defined for the target API or operation." />
+<meta name="DC.Relation" scheme="URI" content="quotaenforcement_creatingquotaenforcementserver.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_apirequestrouting_apiprocessingrule.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_apirequestrouting_apiratelimit" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_apirequestrouting_apiprocessingrule.html" />
+<title>Rate limiting</title>
+</head>
+<body id="apigw_apirequestrouting_apiratelimit"><div role="main">
+<h1 class="title topictitle1">Rate limiting<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body conbody"><p class="shortdesc">The <span class="ph">API Gateway</span> runs the API rate limit
+action to enforce the rate limit scheme that is defined for the target API or operation.</p>
+<div class="p">The API rate limit action enforces the rate limit scheme in the following process: <ol class="ol"><li class="li">The API rate limit action determines the rate limit scheme to enforce.<ul class="ul"><li class="li">If the subscriber is identified and the plan is matched during the API client identification
+phase, the API rate limit action checks whether the operation-level rate limit scheme is defined for
+the target operation:<ul class="ul"><li class="li">When defined, the action enforces the operation-level rate limit.</li>
+<li class="li">When not defined, the action enforces the plan-level rate limit.</li>
+</ul>
+</li>
+<li class="li">If the subscriber is not identified during the client identification phase, the API rate limit
+action checks whether the default rate limit is configured.<ul class="ul"><li class="li">When configured, the action matches the default rate limit that is defined for the API
+collection.</li>
+<li class="li">When not configured, the request is rejected.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="li">The action enforces rate limiting through the quota enforcement server.<ul class="ul"><li class="li">If the rate limit is not exceeded, the processing proceeds to the context population phase.</li>
+<li class="li">If the rate limit is exceeded, the action examines whether the hard limit setting is enabled for
+the plan:<ul class="ul"><li class="li">When enabled, the request is rejected.</li>
+<li class="li">When not enabled, the request is still processed with a warning.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_apirequestrouting_apiprocessingrule.html" title="After an API collection is matched, the API Gateway triggers the API processing rule of the collection to match the target API, enforce the constraints to execute the target API operation, prepare the context for the running of the operation, and execute the assembly rule of the API to respond to the request.">Request processing</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="quotaenforcement_creatingquotaenforcementserver.html">Configuring the quota enforcement server</a></div>
+</div>
+</div></div></body>
+</html>

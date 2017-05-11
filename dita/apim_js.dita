@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE apiPackage PUBLIC "-//IBM//DTD DITA API Package Type//EN"
+ "apiPackage.dtd">
+<apiPackage xml:lang="en-us" id="apim_js">
+<apiName id="apim"><codeph>apim</codeph> module<ph rev="rev760"/></apiName>
+<shortdesc>The <codeph>apim</codeph> module can manipulate data that is used in the <ph
+conref="apigw_conref.dita#common/apigw"/> service.</shortdesc>
+<!--for integration with APIC?-->
+<apiDetail>
+<apiDesc>
+<p>The <codeph>apim</codeph> module is available without using an explicit
+<codeph>require('apim')</codeph> statement. This module is automatically attached to the
+<codeph>Global</codeph> object.
+<!--confirm with Tina, whether this sentence is correct. I get it from Console, error object. http://rtpdoc01.rtp.raleigh.ibm.com:9080/kc/SS9H2Y_7.6.0/com.ibm.dp.doc/console_js.html--></p>
+<p><b>Availability</b><!--in apiPackage, I cannot insert the <section> element as that done in a command topic.--></p>
+<p>The assembly <ph conref="apigw_conref.dita#common/gws"/> action of the <ph
+conref="apigw_conref.dita#common/apigw"/> service.</p>
+<p>This module supports the following APIs:<!--1. alphabetical, check TOC;    2. Finally, copy all "syntax" to gs_toc_js.dita file--><ul>
+<li><xref href="#apim.getCurrentPayload"/></li>
+<li><xref href="#apim.getOriginalPayload"/></li>
+<li><xref href="#apim.getVariable"/></li>
+<li><xref href="#apim.reject"/></li>
+<!--previously, it's called "apim.reject()"-->
+<li><xref href="#apim.setVariable"/></li>
+<li><xref href="#apim.write"/></li>
+</ul></p>
+</apiDesc>
+</apiDetail>
+<related-links>
+<link href="apigw_addinggatewayscriptaction.dita"/>
+</related-links>
+<apiOperation xml:lang="en-us" id="apim.getCurrentPayload">
+<apiName><codeph>apim.getCurrentPayload()</codeph></apiName>
+<shortdesc>Retrieves the API payload of the current message for the assembly <ph
+conref="apigw_conref.dita#common/gws"/> action.
+<!--after the message is processed?--></shortdesc>
+<apiOperationDetail>
+<apiSyntax>
+<apiSyntaxText>apim.getCurrentPayload()</apiSyntaxText>
+</apiSyntax>
+<apiDesc>The current payload must be XML and parsed by a parse action first. Otherwise, this
+function returns
+empty.<!-- ? whether this is correct for GWS action, "must be XML and parsed by a parse action first"--></apiDesc>
+</apiOperationDetail>
+</apiOperation>
+<apiOperation xml:lang="en-us" id="apim.getOriginalPayload">
+<apiName><codeph>apim.getOriginalPayload()</codeph></apiName>
+<shortdesc>Retrieves the original API payload of the message when the message was initially received
+for the assembly <ph conref="apigw_conref.dita#common/gws"/> action.</shortdesc>
+<apiOperationDetail>
+<apiSyntax>
+<apiSyntaxText>apim.getOriginalPayload()</apiSyntaxText>
+</apiSyntax>
+<apiDesc>The original payload must be XML and parsed by a parse action first. Otherwise, this
+function returns empty.<!--? whether "must be XML or parsed"  correct for GWS action--></apiDesc>
+</apiOperationDetail>
+</apiOperation>
+<apiOperation id="apim.getVariable" xml:lang="en-us">
+<apiName><codeph>apim.getVariable()</codeph></apiName>
+<shortdesc>Retrieves the value of an API context variable.</shortdesc>
+<apiOperationDetail>
+<apiSyntax>
+<apiSyntaxText>api.getVariable(<varname>name</varname>)</apiSyntaxText>
+<apiSyntaxItem id="variablename">
+<apiItemName>name</apiItemName>
+<apiDefNote>The name of the API context variable. When the variable is an API property. this
+parameter indicates the property name. This parameter is a string. </apiDefNote>
+</apiSyntaxItem>
+</apiSyntax>
+<apiDesc>The <codeph>api.getVariable()</codeph> retrieves the value of an API context variable. It
+returns <codeph>undefined</codeph> if the variable does not exist. <p>The format of the
+<varname>name</varname> parameter depends on:<ul>
+<li>When the variable is not an API property, such as the <codeph>request.headers</codeph> variable,
+the <varname>name</varname> format can be
+<codeph>request.headers.<varname>headername</varname></codeph> or
+<codeph>request.headers["<varname>headername</varname>"]</codeph>. For example:<ul>
+<li><codeph>api.getVariable('request.headers.Content-Type')</codeph></li>
+<li><codeph>api.getVariable('request.headers["Content-Type"]')</codeph></li>
+<!--Check the latest design: https://github.ibm.com/apimesh/collab/blob/master/design/gateway/reboot/policies/assembly-gatewayscript.md :  The name of API context variable can be the following format:
+var value1 = apim.getVariable('request.headers');
+var value2 = apim.getVariable('request.headers["Content-Type"]');
+var value3 = apim.getVariable('request.headers[my.name]');      //where my.name is not wrapped with double quotation marks.
+
+var value4 = apim.getVariable('gws.special[0][0]');         //how to understand the following format? are they the "property name" of an API property?
+var value5 = apim.getVariable('my.order.book.name');
+var value6 = apim.getVariable('my.order["book"["name"]]);
+var value7 = apim.getVariable('my.order["book"]["id"]');-->
+</ul></li>
+<li>When the variable is an API property, the <varname>name</varname> format can be specified by one
+of the following methods, where the <varname>property_name</varname> indicates the property name.<ul>
+<li><codeph>apim.getVariable('<varname>property_name</varname>')</codeph></li>
+<li><codeph>api.getVariable('api.properties.<varname>property_name</varname>')</codeph></li>
+</ul></li>
+</ul></p></apiDesc>
+<apiDesc id="dataconversions" spectitle="Data conversions"
+><!--from existing "getVariable" http://rtpdoc01.rtp.raleigh.ibm.com:9080/kc/SS9H2Y_7.6.0/com.ibm.dp.doc/getvariable_js.html. -->A
+variable is assigned with a value and then associated with a assembly processing context. The
+variable can be written or read by different types of assembly actions within the scope of a
+transaction. Between different assembly actions, data conversions take place before marshalling and
+unmarshalling variables. For most data conversions, the type of data that is read is the same as the
+type of data that is written. A few cases result in that data type is different from that is
+originally set into a variable.
+<!--? Between different assembly actions, data conversions take place before marshalling and unmarshalling variables???--><table
+id="table_emx_4gw_nz">
+<title>Data conversion exceptions</title>
+<desc>
+<p outputclass="summary"/>
+</desc>
+<tgroup cols="2">
+<!--From design: type conversion, from drJSONType to GWS (onl null, Boolean, number, string, array, object , or drDynaPayload can be saved in the API context.-->
+<colspec colname="col1" colwidth="20*"/>
+<colspec colname="col2" colwidth="79*"/>
+<thead>
+<row valign="bottom">
+<entry colname="col1">Data</entry>
+<entry colname="col2">Conversion</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry>Array</entry>
+<entry colname="col2">The <codeph>getVariable()</codeph> API returns a JavaScript
+<codeph>array</codeph> for a variable that was originally set to a JavaScript
+<codeph>Array</codeph>.</entry>
+</row>
+<row>
+<entry>Boolean</entry>
+<entry colname="col2">The <codeph>getVariable()</codeph> API returns a JavaScript
+<codeph>ture</codeph> or <codeph>false</codeph> for a variable that was originally set to a
+JavaScript <codeph>Boolean</codeph>.</entry>
+</row>
+<row>
+<entry colname="col1">NULL</entry>
+<entry colname="col2">The <codeph>getVariable()</codeph> API returns a JavaScript
+<codeph>null</codeph> for a variable that was originally set to a JavaScript
+<codeph>NULL</codeph>.</entry>
+</row>
+<row>
+<entry>Object</entry>
+<entry colname="col2">The <codeph>getVariable()</codeph> API returns a JavaScript
+<codeph>object</codeph> for a variable that was originally set to a JavaScript
+<codeph>Object</codeph>.</entry>
+</row>
+<row>
+<entry>String</entry>
+<entry colname="col2">The <codeph>getVariable()</codeph> API returns a JavaScript
+<codeph>string</codeph> for a variable that was originally set to a JavaScript
+<codeph>String</codeph>.</entry>
+</row>
+<row>
+<entry><codeph>drDynaPayload</codeph></entry>
+<entry colname="col2">The <codeph>getVariable()</codeph> API returns a JavaScript
+<codeph>buffer</codeph> for a variable that was originally set to a JavaScript
+<codeph>drDynaPayload</codeph>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></apiDesc>
+<example>
+<title>Examples</title>
+<ul>
+<li>Retrieve the value of the <codeph>request.headers["Content-Type"]</codeph>
+variable.<codeblock>apim.getVariable('request.headers["Content-Type"]')</codeblock></li>
+<li>Retrieve the value of the <codeph>test</codeph> API
+property.<codeblock>api.getVariable('api.properties.test')</codeblock></li>
+</ul>
+</example>
+</apiOperationDetail>
+<related-links>
+<link href="apigw_contextvariables.dita"/>
+</related-links>
+</apiOperation>
+<apiOperation xml:lang="en-us" id="apim.reject">
+<apiName><codeph>apim.error()</codeph></apiName>
+<shortdesc>Throws a custom error to the assembly rule and terminates the currently assembly
+rule.<!--ref: http://rtpdoc01.rtp.raleigh.ibm.com:9080/kc/SS9H2Y_7.6.0/com.ibm.dp.doc/reject_apigatewayelement.html-->
+</shortdesc>
+<apiOperationDetail>
+<apiSyntax>
+<apiSyntaxText>apim.error(<varname>errorName</varname>, <varname>statusCode</varname>, <varname>reasonPhrase</varname>, <varname>errorMessage</varname>)</apiSyntaxText>
+<!--1. All parameters use camelcase, which is suitable for design style in GWS IU.-->
+<apiSyntaxItem>
+<apiItemName>errorName</apiItemName>
+<apiDefNote>The name of the error. This parameter is a string. The default value is
+'<codeph>TransformError</codeph>'.</apiDefNote>
+</apiSyntaxItem>
+<apiSyntaxItem>
+<apiItemName>statusCode</apiItemName>
+<apiDefNote>The HTTP status code of the required error. This parameter is an integer. Enter a value
+in the range 400 - 999.</apiDefNote>
+</apiSyntaxItem>
+<apiSyntaxItem>
+<apiItemName>reasonPhrase</apiItemName>
+<apiDefNote>The HTTP reason phrase for the error. This parameter is a string.</apiDefNote>
+</apiSyntaxItem>
+<apiSyntaxItem>
+<apiItemName>errorMessage</apiItemName>
+<apiDefNote>The custom error message for the returned fault, including such as the troubleshooting
+information. This parameter is a string.</apiDefNote>
+</apiSyntaxItem>
+</apiSyntax>
+<apiDesc>The <codeph>apim.error()</codeph> API throws a custom error. Then, the <ph
+conref="apigw_conref.dita#common/apigw"/> does not run the subsequent assembly actions
+and the current assembly rule is ended. The <ph conref="apigw_conref.dita#common/apigw"
+/> returns a error message when the API responses to the client.</apiDesc>
+<example>
+<title>Example</title>
+<p> Throw a custom <codeph>MyError</codeph> error to the assembly
+rule.<codeblock>apim.error('MyError', 500, 'Internal Error', 'Some error message')</codeblock></p>
+</example>
+</apiOperationDetail>
+</apiOperation>
+<apiOperation xml:lang="en-us" id="apim.setVariable">
+<apiName><codeph>apim.setVariable()</codeph></apiName>
+<shortdesc>Sets, adds, or clears an API context
+variable.<!--
+<p>Create or update an API context variable: apim.setVariable('my.value1', true);    
+1) ? I think it should be pim.setvariable(name, value[, action]);  where we have the optional "action" parameter, especially the "action" include "delete" a variable. This API is an equivalent embodiment of the Assembly Set variable action (GUI) 
+2) ?  In GUI, we have "Optional) Specify the data type of the variable."; but in this API, it seems that we don't "manually" specifiy the data type? 
+3) Copy from APIc KC "Variable: is the name of the context variable or API property that you want to reference."  In our KC, it said "API property" is a sub-type of the context variable, so use "API context" variable generally http://rtpdoc01.rtp.raleigh.ibm.com:9080/kc/SS9H2Y_7.6.0/com.ibm.dp.doc/apigw_referencingapicontextvariable.html#apigw_referencingapicontextvariable--></shortdesc>
+<apiOperationDetail>
+<apiSyntax>
+<apiSyntaxText>apim.setVariable(<varname>name</varname>, <varname>value</varname>[, <varname>action</varname>])</apiSyntaxText>
+<apiSyntaxItem>
+<apiItemName>name</apiItemName>
+<apiDefNote>The name of the API context variable. This parameter is a string.</apiDefNote>
+</apiSyntaxItem>
+<apiSyntaxItem conref="#apim.getVariable/variablename"/>
+<apiSyntaxItem>
+<apiItemName>value</apiItemName>
+<apiDefNote>The value that is set to the variable. This parameter is required when you want to only
+add or set the
+variable.<!--"Copy from DP KC: The value can be a JavaScript primitive value or a JavaScript Object (such as, a Buffer, Buffers, XML DOM Node, or NodeList).", to check APIc KC:--></apiDefNote>
+</apiSyntaxItem>
+<apiSyntaxItem>
+<apiItemName>action</apiItemName>
+<apiDefNote>The specific action for the variable, including setting, adding, or clearing the
+variable. This parameter is a string. This parameter value can be <codeph>add</codeph>, or
+<codeph>clear</codeph>, or <codeph>set</codeph>. The default value is
+<codeph>set</codeph>.</apiDefNote>
+<!--Need to confirm whether this parameter value is correct?-->
+</apiSyntaxItem>
+</apiSyntax>
+<apiDesc>The <codeph>apim.setVariable()</codeph> API can set, add, or clear an API context variable
+in the following rules:<ul>
+<li>The add action adds a variable. This action can add a new header or append a new entry of the
+same header.</li>
+<li>The clear action deletes a variable. This action can remove a header when the data is processed
+in the assembly flow.</li>
+<li>The set action works in following ways: <ul>
+<li>When the specified variable does not exist, a new variable is created with assigned value. </li>
+<li>When the specified variable exists and it is not read-only, the configured value overrides the
+existing value. </li>
+</ul></li>
+</ul><p>The format of the <varname>name</varname> parameter depends on:<ul>
+<!--Whether the following "name" format is the same as that in apim.getVariable() API.  if so, internal conref can be used.-->
+<li>When the variable is not an API property, such as the <codeph>request.headers</codeph> variable,
+the <varname>name</varname> format can be
+<codeph>request.headers.<varname>headername</varname></codeph> or
+<codeph>request.headers["<varname>headername</varname>"]</codeph>. For example:<ul>
+<li><codeph>api.setVariable('request.headers.Content-Type', "test", add )</codeph></li>
+<li><codeph>api.setVariable('request.headers["Content-Type"]', "test", add )</codeph></li>
+</ul></li>
+<li>When the variable is an API property, the <varname>name</varname> format can be specified by one
+of the following methods, where the <varname>property_name</varname> indicates the property name.<ul>
+<li><codeph>apim.setVariable('<varname>property_name</varname>', "test", add)</codeph></li>
+<li><codeph>api.setVariable('api.properties.<varname>property_name</varname>', "test",
+add)</codeph></li>
+</ul></li>
+</ul></p><p>When you assign value to the variable, follow these rules. Otherwise, error occurs and
+the current set variable action is ended.<ul>
+<li>The value must match the specified data type, number, string, or Boolean.
+<!--"data type"? This API is an equivalent embodiment of the Assembly Set variable action (GUI) . In GUI, we have "Optional) Specify the data type of the variable."; but in this API, it seems that we don't "manually" specifiy the data type?  If we don't have, we should NOT mention this "data type" information here.  --></li>
+<li>You cannot add the <codeph>message.status.code</codeph> variable. Instead, you can set it. The
+data type of this variable must be number, and the assigned value must be three digits from 100
+through 999.</li>
+</ul></p></apiDesc>
+<!--1. I haven't added the "Data conversion" table here.    2. From dev's design: Type conversion rule, from GWS to drJSONType.
+Please note that only a null, boolean, number, string, array, object, or drDynaPayload can be saved in the API context. -->
+<example>
+<title>Examples</title>
+<ul>
+<li>Add a new header that is named
+<codeph>message.headers.test</codeph>.<codeblock>apim.setVariable("message.headers.test", "teststring", add)</codeblock></li>
+<li>Override the value of the existing <codeph>message.headers.test</codeph>
+variable.<codeblock>apim.setVariable("message.headers.test", 2245, set)</codeblock></li>
+<li>Delete the <codeph>message.headers.test</codeph>
+variable.<codeblock>apim.setVariable("message.headers.test", clear)</codeblock></li>
+<!--special case:
+apim.setVariable('my["value"]', 9999);
+apim.setVariable('my["0"]', new Date());
+// If my does not exist, create my object and set "0" property.
+// If my existes, check my is ARRAY or OBJECT and then set value.
+apim.setVariable('my[0]', 'value1');-->
+</ul>
+</example>
+</apiOperationDetail>
+<related-links>
+<link href="apigw_contextvariables.dita"/>
+</related-links>
+</apiOperation>
+<apiOperation xml:lang="en-us" id="apim.write">
+<apiName><codeph>apim.write()</codeph></apiName>
+<shortdesc>Supports writing to an API contexts.
+<!--? an "API context" variable. ?? but in syntax, there is only one "value" parameter, how can I know which context variable I'm --></shortdesc>
+<apiOperationDetail>
+<apiSyntax>
+<apiSyntaxText>apim.write(<varname>value</varname>)</apiSyntaxText>
+<apiSyntaxItem>
+<apiItemName>value</apiItemName>
+<apiDefNote>The name of the object to write. <!--??  what "object"/--></apiDefNote>
+</apiSyntaxItem>
+</apiSyntax>
+<apiDesc>The <codeph>apim.write()</codeph> API xxx <p>Calling the <codeph>apim.write()</codeph> API
+to the same context overwrites the previous <codeph>apim.write()</codeph> API calls to that context.
+In effect, the <codeph>apim.write()</codeph> API can be called only once on a context per
+transaction.<!--??  API can be called only once on a context per session.  "per session"?--></p></apiDesc>
+</apiOperationDetail>
+</apiOperation>
+</apiPackage>

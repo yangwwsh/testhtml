@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_addingparseaction" xml:lang="en-us">
+<title>Adding a parse action to the assembly<ph rev="rev760"/></title>
+<shortdesc>An assembly parse action controls the parsing of an input document which can be an XML or
+JSON document, or binary data from the API context. When a parse action is configured for an
+assembly rule, the parse settings that are associated with the parse action override the
+corresponding parser limits for input documents that are set by the XML manager.</shortdesc>
+<taskbody>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_assembly">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, select <uicontrol>Assembly Parse Action</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step importance="optional">
+<cmd>In the <uicontrol>URL reference</uicontrol> field, specify the URL to retrieve parse
+settings.</cmd>
+</step>
+<step importance="optional">
+<cmd>In the <uicontrol>Literal configuration</uicontrol> field, specify parse settings with an XML
+or JSON text string with parameters and their values.</cmd>
+</step>
+<step importance="optional">
+<cmd>From the <uicontrol>Object reference</uicontrol> list, select the parse settings configuration
+object from which to retrieve its properties as the default settings for this action.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+</taskbody>
+</task>

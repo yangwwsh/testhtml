@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_configuringapipath" xml:lang="en-us">
+<title>Creating an API path<ph rev="rev760"/></title>
+<shortdesc>An API path defines the API operations that are available on a single path.</shortdesc>
+<taskbody>
+<context>
+<p>Provide the following information when you configure an API path:<ul>
+<li>The path, which is relative to the base path, where the operations are available.</li>
+<li>The operations that are available on the path.</li>
+<li>Optionally, the parameters that apply to all operations under this path. The parameters in the
+API path can be overridden by the parameters that are specified at the operation level.</li>
+</ul>
+</p>
+</context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_api">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, select <uicontrol>API Path</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Specify the path where the operations are served. </cmd>
+</step>
+<step>
+<cmd>Specify the operations that are served in the path.</cmd>
+</step>
+<step importance="optional">
+<cmd>Define a parameter that is applicable for all operations under this path.</cmd>
+<substeps id="parameter">
+<substep conref="apigw_conref.dita#commonsteps/config_add_substep">
+<cmd/>
+</substep>
+<substep>
+<cmd>Enter the parameter name.</cmd>
+<info>Parameter names are case-sensitive.</info>
+</substep>
+<substep>
+<cmd>Set whether the parameter is required for a call to be valid.</cmd>
+</substep>
+<substep id="paratype">
+<cmd>Select the type of the parameter.</cmd>
+</substep>
+<substep>
+<cmd>Select the location of the parameter.</cmd>
+</substep>
+<substep>
+<cmd>Depending on the location of the parameter, specify the schema or the extending format:</cmd>
+<info>
+<ul>
+<li>If the parameter is located in <codeph>body</codeph>, specify the schema that defines the type
+that is used for the body parameter.</li>
+<li>If the parameter is not located in <codeph>body</codeph>, specify the extending format for the
+parameter type that you specified in <xref href="#apigw_configuringapipath/paratype" format="dita"
+/>.</li>
+</ul>
+</info>
+</substep>
+<substep conref="apigw_conref.dita#commonsteps/config_save_substep">
+<cmd/>
+</substep>
+</substeps>
+</step>
+<step importance="optional">
+<cmd>Repeat the previous step to define another parameter.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+</taskbody>
+<related-links>
+<link href="apigw_configuringapioperation.dita"/>
+</related-links>
+</task>

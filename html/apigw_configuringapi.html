@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Developing APIs" />
+<meta name="abstract" content="The DataPower Gateway stores each API as an API definition configuration. To develop an API, create an API definition." />
+<meta name="Description" content="The DataPower Gateway stores each API as an API definition configuration. To develop an API, create an API definition." />
+<meta name="DC.Relation" scheme="URI" content="http://tools.ietf.org/html/rfc6838" />
+<meta name="DC.Relation" scheme="URI" content="apigw_overview.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapipath.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapioperation.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_securitydefinitions.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_properties.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringassembly.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_configuringapi" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_overview.html" />
+<title>Developing APIs</title>
+</head>
+<body id="apigw_configuringapi"><div role="main">
+<h1 class="title topictitle1">Developing APIs<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">The <span class="ph">DataPower® Gateway</span> stores each API as an API definition
+configuration. To develop an API, create an API definition.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd6470e24">About this task</h2></div><div class="p">You can create the following types of API definitions on the <span class="ph">DataPower Gateway</span>:<ul class="ul"><li class="li">The REST API that is compliant with version 2.0 of the Swagger specification.</li>
+<li class="li">The OAuth 2.0 provider API that contains the authorization and token endpoints of an OAuth
+flow.</li>
+</ul>
+</div>
+
+<div class="p">You need to define the following settings that are generic to both types of API.<ul class="ul"><li class="li">The base path on which the API is served. All resources in a REST API are defined relative to
+its base path.</li>
+<li class="li">Optionally, the MIME types that the API can consume and produce. The MIME type definitions
+should be in compliance with RFC 6838. For
+example,<samp class="ph systemoutput">application/json</samp>.</li>
+<li class="li">A list of paths to the API operations.</li>
+<li class="li">Optionally, the alternative security requirements to enforce for the API as a whole (that is,
+there is a logical OR between the security requirements). The security requirement that you apply to
+your API is the top-level security declaration. By default, the security requirement is applied to
+all operations in the API. However, for each API operation, you can override the top-level security
+by separately specifying security schemes to enforce on the operation level.</li>
+<li class="li">Optionally, the custom API properties.</li>
+<li class="li">Optionally, the streaming and flow control mode. Flow control cannot be enabled unless streaming
+is enabled. <div class="p">When the <span class="ph">API Gateway</span> sends or receives large static
+data, such as images, the memory footprint on <span class="ph">DataPower Gateway</span> can be large. You can reduce the memory
+footprint by enabling streaming and flow control. <ul class="ul"><li class="li">When streaming is enabled, the <span class="ph">API Gateway</span> passes message
+payloads through without parsing and the <span class="ph">DataPower Gateway</span>
+does not buffer the entire payload of a message into the memory.</li>
+<li class="li">When flow control is enabled, the <span class="ph">DataPower Gateway</span> limits the
+number of message payloads that are received from the server or client, thereby, avoid too many data
+being buffered on <span class="ph">DataPower Gateway</span>.</li>
+</ul>
+Data streaming is available when an assembly rule of the API definition meets one of the
+following requirements:<ul class="ul"><li class="li">The assembly rule includes only one assembly invoke action. </li>
+<li class="li">The assembly rule includes only the assembly actions that never access the
+<samp class="ph codeph">message.body</samp> context variable. The following assembly actions meet this
+requirement: <ul class="ul"><li class="li">Assembly switch action</li>
+<li class="li">Assembly set variable action</li>
+</ul>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+
+<div class="p">For a REST API, you can optionally define the following settings.<ul class="ul"><li class="li">The assembly that controls a specific aspect of processing during API invocation at run
+time.</li>
+</ul>
+</div>
+
+<p class="p">For an OAuth API, you must also provide a list of OAuth specific settings.</p>
+
+<p class="p">The following procedure instructs how to create an API definition.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd6470e115">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">API</kbd>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">From the search results, select <span class="ph uicontrol">API Definition</span>.</span></li>
+<li class="li step stepexpand" id="apigw_configuringapi__config_add"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step stepexpand" id="apigw_configuringapi__config_basicproperties"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Specify the base path, which is relative to the host, where the API is served.</span></li>
+<li class="li step stepexpand">Optional: <span class="ph cmd">Specify the MIME types that the API can consume.</span></li>
+<li class="li step stepexpand">Optional: <span class="ph cmd">Specify the MIME types that the API can produce.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Specify the API paths where the operations are available.</span></li>
+<li class="li step stepexpand">Optional: <span class="ph cmd">Specify the security requirements.</span></li>
+<li class="li step stepexpand">Optional: <span class="ph cmd">Specify the custom API properties.</span></li>
+<li class="li step stepexpand">Optional: <span class="ph cmd">Specify whether to enable streaming.</span></li>
+<li class="li step stepexpand">Optional: <span class="ph cmd">When data streaming is enabled, specify whether to enable flow control.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Select the type of API to create.</span> <ul class="ul choices"><li class="li choice">When you create a REST API, complete the following configuration.<ol class="ol" type="a"><li class="li">Specify the assembly.</li>
+</ol>
+</li>
+<li class="li choice">When
+you create an OAuth API, complete the following configuration.<ol class="ol" type="a"><li class="li">Specify whether the client type is public or confidential.</li>
+<li class="li">Specify the OAuth scope.</li>
+<li class="li">Select the method to obtain the access token for authorization.</li>
+<li class="li">Specify the basic authentication security definition to use to access the API.</li>
+<li class="li">Select the method to collect client credentials during the authorization process.</li>
+<li class="li">Select the method to grant authorization.</li>
+<li class="li">Enter the time that an access token remains valid.</li>
+<li class="li">Set whether to enable the use of refresh tokens. When enabled, complete the following settings.<ol class="ol" type="i"><li class="li">Specify how many times the refresh token can be requested.</li>
+<li class="li">Specify the lifetime of the refresh token.</li>
+</ol>
+</li>
+<li class="li">Set whether to enable the endpoint for token revocation.</li>
+<li class="li">Set whether to enable the endpoint for token retrieval.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li class="li step stepexpand" id="apigw_configuringapi__config_apply"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save the changes to the running configuration.</span></li>
+<li class="li step stepexpand" id="apigw_configuringapi__config_saveconfig"><span class="ph cmd">Click <span class="ph uicontrol">Save Configuration</span> or <span class="ph uicontrol">Save changes</span> to save
+the changes to the persisted configuration.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringapipath.html">Creating an API path</a></span><br />
+An API path defines the API operations that are available on a single path.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringapioperation.html">Creating an API operation</a></span><br />
+An API operation defines the HTTP method to execute against the resources. You can use
+GET, POST, PUT, DELETE, HEAD, PATCH, and OPTIONS operations for the API.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_securitydefinitions.html">API security</a></span><br />
+<span class="ph">API Gateway</span> allows you to secure your APIs through API
+key, basic authentication, and OAuth security schemes.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_properties.html">API properties</a></span><br />
+An API property is a type of context variable whose value is dependent on the API
+collection that the API is provisioned in. Collection-specific API properties allow you to use the
+same API definition in different API collections when a property in a collection requires a unique
+or different value.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringassembly.html">Creating an assembly</a></span><br />
+An assembly defines the data processing capabilities of an API definition. When an API is
+matched for an API request, the API execute action in the API processing rule runs the assembly of
+the API to respond to the request. The information instructs how to create an assembly.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_overview.html" title="An API Gateway receives API requests and routes the request to a matching API that is provisioned natively in the API Gateway. The API Gateway then runs the assembly of the API to respond to the request.">API Gateway</a></div>
+</div>
+<div class="relinfo"><strong>Related information</strong>:<br />
+<div><img src="./sout.gif" alt="" /><a class="link" href="http://tools.ietf.org/html/rfc6838" target="_blank" title="(Opens in a new tab or window)">RFC 6838: <span class="ph filepath">https://tools.ietf.org/html/rfc6838</span></a></div>
+</div>
+</div></div></body>
+</html>

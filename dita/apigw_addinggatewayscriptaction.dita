@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_addinggatewayscriptaction" xml:lang="en-us">
+<title>Adding a <ph conref="apigw_conref.dita#common/gws"/> action<ph rev="rev760"
+/></title>
+<shortdesc>Add a <ph conref="apigw_conref.dita#common/gws"/> action to the assembly. The
+<ph conref="apigw_conref.dita#common/gws"/> action uses a specified <ph
+conref="apigw_conref.dita#common/gws"/> file in a directory on the <ph
+conref="apigw_conref.dita#common/idag2nd"/>. </shortdesc>
+<taskbody>
+<context>
+<p>When the <ph conref="apigw_conref.dita#common/gws"/> files calls the following APIs, you can add
+a parse action to the assembly.<!--what's the difference of result between parse V.S. not parse--><ul>
+<li><codeph>apim.readInput()</codeph></li>
+<li><codeph>apim.readInputAsJSON()</codeph></li>
+<li><codeph>apim.readInputAsBuffer()</codeph></li>
+<li><codeph>apim.readInputAsXML()</codeph></li>
+</ul>   You can specify the location of the <ph conref="apigw_conref.dita#common/gws"/> file with a
+URL or by referencing the <codeph>request.headers.<varname>X-SOURCE-URL</varname></codeph> API
+context variable.<!--is "request.headers" the only one API context variable is supported herein?--><ul>
+<li>The URL must start with the <filepath>local:</filepath>, <filepath>store:</filepath>, or
+<filepath>temporary:</filepath> directory. For example, the location of the <codeph>test.js</codeph>
+script file is
+<codeph>local:///test.js</codeph>.<!--Based on GUI,  this field is a "string",  does it mean you must manually "enter" the URL, not select? to check GUI design; However, it's not friendly to ask users to manually "enter" a URL. The best practicse is to "select" from DP file system.--></li>
+<li>In the <codeph>request.headers.X-SOURCE-URL</codeph> API context variable, the
+<varname>X-SOURCE-URL</varname> indicates the URL that specifies the directory of the script file.
+Reference this variable with the <codeph>$(request.headers.<varname>X-SOURCE-URL</varname>)</codeph>
+format.</li>
+</ul></p>
+<p>The <ph conref="apigw_conref.dita#common/gws"/> file can use only the following <ph
+conref="apigw_conref.dita#common/gws"/> object and modules:
+<!--F: Where items are specific to API Gateway (which we know is for APIc integration, but really for any API integration), you need to discuss how the GWS action differs from that used by all other services, e.g. MPGW service. Note that this would be no different than if an existing processing action worked different among IDG services.--><ul
+id="module_list">
+<li><codeph>apim</codeph> module</li>
+<li><codeph>context</codeph> object</li>
+<li><codeph>fs</codeph> module </li>
+<li><codeph>multistep</codeph> module </li>
+<li><codeph>service-metadata</codeph> module </li>
+<!--[ add more items if other modules or objects are supported in future, convenient for maintenance ]-->
+</ul>See the reference information about the <ph conref="apigw_conref.dita#common/gws"/>
+objects and modules for the usage.</p>
+</context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_assembly">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, select <uicontrol>Assembly GatewayScript</uicontrol>.</cmd>
+</step>
+<step>
+<cmd>Specify the location of the script file.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Specify the name and location of the <ph conref="apigw_conref.dita#common/gws"/>
+file.</cmd>
+</step>
+<!--
+1. Optional: To debug the script file? dev will decide soon
+2. no need to mention "The JavaScriptError rror is thrown, which captures all errors that occur during the processing of the GatewayScript action.", I think. So I deleted the "Results" section.-->
+</steps>
+</taskbody>
+<related-links>
+<link href="apigw_addingparseaction.dita"/>
+<link href="filemanagement_directories.html" format="html" scope="peer">
+<linktext>File management</linktext>
+</link>
+<link href="apigateway_gatewayscript_general.dita"/>
+</related-links>
+</task>

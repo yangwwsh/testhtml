@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Client identification" />
+<meta name="abstract" content="The API Gateway runs the API client identification action to examine the API key credentials that are carried in the request and verify the subscription of the client." />
+<meta name="Description" content="The API Gateway runs the API client identification action to examine the API key credentials that are carried in the request and verify the subscription of the client." />
+<meta name="DC.Relation" scheme="URI" content="apigw_apirequestrouting_apiprocessingrule.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_apirequestrouting_apiclientidentification" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_apirequestrouting_apiprocessingrule.html" />
+<title>Client identification</title>
+</head>
+<body id="apigw_apirequestrouting_apiclientidentification"><div role="main">
+<h1 class="title topictitle1">Client identification<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body conbody"><p class="shortdesc">The <span class="ph">API Gateway</span> runs the API client
+identification action to examine the API key credentials that are carried in the request and verify
+the subscription of the client. </p>
+<div class="p"><ol class="ol"><li class="li">The API client identification action examines the API key credentials that are carried in the
+request against the API key security requirement of the target API. <ul class="ul"><li class="li">When the API does not have any security requirement or the API does not have any API key
+security requirement, the processing proceeds directly to the rate limiting phase.</li>
+<li class="li">When the API has an API key security requirement, the request must meet the following conditions
+to pass the client identification check:<ul class="ul"><li class="li">The API key credentials must be placed in the location that is expected by the API key security
+requirement.</li>
+<li class="li">When the API key security requirement requires the client ID, the request must carry the client
+ID in the expected location.</li>
+<li class="li">When the API key security requirement requires the client ID and secret, the request must carry
+the client ID and secret in the expected location.</li>
+</ul>
+The request is rejected when client identification fails.</li>
+</ul>
+</li>
+<li class="li">After the API key credentials pass the client identification check, the API client
+identification action checks whether an API subscriber exists in the <span class="ph">API Gateway</span> by matching the client ID and secret.<ul class="ul"><li class="li">If a subscriber is matched, the API client identification action retrieves the plans that the
+subscriber is subscribed to:<ul class="ul"><li class="li">If the target API is packaged in at least one of the subscribed plans, the action saves the
+matched plan to be used in the rate limiting phase.</li>
+<li class="li">If the target API is not packaged in any of the subscribed plans, the request is rejected.</li>
+</ul>
+</li>
+<li class="li">If no subscriber is matched, the request is rejected.</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_apirequestrouting_apiprocessingrule.html" title="After an API collection is matched, the API Gateway triggers the API processing rule of the collection to match the target API, enforce the constraints to execute the target API operation, prepare the context for the running of the operation, and execute the assembly rule of the API to respond to the request.">Request processing</a></div>
+</div>
+</div></div></body>
+</html>

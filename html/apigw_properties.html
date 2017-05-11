@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="API properties" />
+<meta name="abstract" content="An API property is a type of context variable whose value is dependent on the API collection that the API is provisioned in. Collection-specific API properties allow you to use the same API definition in different API collections when a property in a collection requires a unique or different value." />
+<meta name="Description" content="An API property is a type of context variable whose value is dependent on the API collection that the API is provisioned in. Collection-specific API properties allow you to use the same API definition in different API collections when a property in a collection requires a unique or different value." />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapi.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapiproperty.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="concept_qf2_my4_3z" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_configuringapi.html" />
+<title>API properties</title>
+</head>
+<body id="concept_qf2_my4_3z"><div role="main">
+<h1 class="title topictitle1">API properties<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body conbody"><p class="shortdesc">An API property is a type of context variable whose value is dependent on the API
+collection that the API is provisioned in. Collection-specific API properties allow you to use the
+same API definition in different API collections when a property in a collection requires a unique
+or different value.</p>
+<p class="p">You can access and manipulate the API properties by referencing an API property in the assembly
+actions. For example, you might configure an assembly if action that executes its case when the API
+request is routed to a particular API collection, which determines the value of the API property for
+the case.</p>
+<p class="p">After an API property is created, the assembly actions can then reference the API property
+through the property name.</p>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringapiproperty.html">Adding a custom API property entry</a></span><br />
+Based on the purpose of your APIs, you can add custom API properties. The information
+instructs how to add a custom API property entry.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_configuringapi.html" title="The DataPower Gateway stores each API as an API definition configuration. To develop an API, create an API definition.">Developing APIs</a></div>
+</div>
+</div></div></body>
+</html>

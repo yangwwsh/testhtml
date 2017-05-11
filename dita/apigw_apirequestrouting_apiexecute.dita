@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="apigw_apirequestrouting_apiexecute" xml:lang="en-us">
+<title>Assembly execution<ph rev="rev760"/></title>
+<shortdesc>The <ph conref="apigw_conref.dita#common/apigw"/> runs the API execute action
+to execute the assembly rule that is identified at the runtime for the incoming request.</shortdesc>
+<conbody>
+<p>The API execute action runs the assembly rule, and when an error occurs, runs the assembly error
+handler in the following process:<ol>
+<li>The API execute action identifies the assembly rule that is defined for the target API.</li>
+<li>The API execute action runs the assembly rule.</li>
+<li>When an error occurs during the running of the assembly rule, or any actions in the assembly
+rule, the API execute action determines whether a catch setting is configured to handle this
+specific error.<ul>
+<li>When a catch setting is found, the API execute action runs the error rule that is specified for
+the error.</li>
+<li>When a catch setting is not found but the default catch setting is configured, the API execute
+action runs the default error rule.</li>
+<li>When neither is found, the error is not handled. The API execute action saves the error
+information to be used by the API result action for response preparation.</li>
+</ul></li>
+</ol>
+</p>
+</conbody>
+</concept>

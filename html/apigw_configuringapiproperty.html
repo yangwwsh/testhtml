@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Adding a custom API property entry" />
+<meta name="abstract" content="Based on the purpose of your APIs, you can add custom API properties. The information instructs how to add a custom API property entry." />
+<meta name="Description" content="Based on the purpose of your APIs, you can add custom API properties. The information instructs how to add a custom API property entry." />
+<meta name="DC.Relation" scheme="URI" content="apigw_referencingapicontextvariable.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_properties.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_configuringapiproperty" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_properties.html" />
+<title>Adding a custom API property entry</title>
+</head>
+<body id="apigw_configuringapiproperty"><div role="main">
+<h1 class="title topictitle1">Adding a custom API property entry<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">Based on the purpose of your APIs, you can add custom API properties. The information
+instructs how to add a custom API property entry.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd9161e19">About this task</h2></div><p class="p">The value of an API property is collection-specific. A custom property entry specifies one
+property and the property value for one collection. To add another custom property, or to specify a
+different property value for another collection, add another entry.</p>
+
+<div class="p">To add a custom API property, provide the following information:<ul class="ul"><li class="li">The name of the property. The assembly actions reference the property through the property
+name.</li>
+<li class="li">The name of the API collection that the property value applies to. When the property value
+applies to all collections, use the default value asterisk (<samp class="ph codeph">*</samp>).</li>
+<li class="li">The value of the property for the specified collection.</li>
+</ul>
+</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd9161e35">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">From the API definition configuration, locate the <span class="ph uicontrol">Custom properties</span>
+setting.</span></li>
+<li class="li step" id="apigw_configuringapiproperty__add"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step"><span class="ph cmd">Specify the property name.</span></li>
+<li class="li step">Optional: <span class="ph cmd">Specify the collection name.</span></li>
+<li class="li step" id="apigw_configuringapiproperty__value"><span class="ph cmd">Specify the value for the collection.</span></li>
+<li class="li step"><span class="ph cmd">Repeat step <a class="xref" href="#apigw_configuringapiproperty__add">2</a> - <a class="xref" href="#apigw_configuringapiproperty__value">5</a> to add another entry.</span></li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd9161e71">What to do next</h2></div>After an API property is created, you can access or manipulate the property value by
+referencing the property in the assembly actions.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_properties.html" title="An API property is a type of context variable whose value is dependent on the API collection that the API is provisioned in. Collection-specific API properties allow you to use the same API definition in different API collections when a property in a collection requires a unique or different value.">API properties</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="apigw_referencingapicontextvariable.html" title="You can access and manipulate a referenced API context variable through assembly actions. The information instructs how to reference a variable in the API context through the assembly actions.">Accessing and manipulating an API context variable</a></div>
+</div>
+</div></div></body>
+</html>

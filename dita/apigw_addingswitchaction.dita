@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_addingswitchaction" xml:lang="en-us">
+<title>Adding a switch action to choose which rule to use<ph rev="rev760"/></title>
+<shortdesc>An assembly switch action evaluates the input context against a list of conditions and
+runs the corresponding API rule of the first condition that matches. Provide conditions with
+JavaScript expression and use an <q>otherwise</q> clause to run a designated rule when no condition
+matches.</shortdesc>
+<taskbody>
+<context>
+<p>You can define a list of case statements. The order of case statements is important. The case
+statements are evaluated in their order and the API rule of the first condition that matches is run.
+The designated rule can define further switch actions.</p>
+<p>The match condition must evaluate to true for the corresponding rule to run. The following values
+evaluate to false, which is also known as falsy values. All other values, including all objects,
+evaluate to true.<ul>
+<li><codeph>false</codeph></li>
+<li><codeph>undefined</codeph></li>
+<li><codeph>null</codeph></li>
+<li><codeph>0</codeph></li>
+<li><codeph>NaN</codeph></li>
+<li>The empty string ("")</li>
+</ul>Do not confuse the primitive boolean values <codeph>true</codeph> and <codeph>false</codeph>
+with the true and false values of the Boolean object.</p>
+<p>When no condition matches, you can use an <q>otherwise</q> clause to define the API rule to run. <ul>
+<li>When defined, the designated API rule runs.</li>
+<li>When not defined, the <ph conref="apigw_conref.dita#common/idag2nd"/> executes the
+next action that follows the switch action in the assembly.</li>
+</ul></p>
+<p>When an error occurs during the execution of the selected rule, the transaction is aborted.</p>
+</context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_assembly">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, select <uicontrol>Assembly Switch Action</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Specify a case.</cmd>
+<substeps>
+<substep conref="apigw_conref.dita#commonsteps/config_add_substep">
+<cmd/>
+</substep>
+<substep>
+<cmd>Enter the condition.</cmd>
+</substep>
+<substep>
+<cmd>Specify the API rule to run when the condition matches.</cmd>
+</substep>
+<substep conref="apigw_conref.dita#commonsteps/config_save_substep">
+<cmd/>
+</substep>
+</substeps>
+</step>
+<step importance="optional">
+<cmd>Repeat the previous step to add another case.</cmd>
+</step>
+<step importance="optional">
+<cmd>Specify the API rule to run when no condition matches.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+</taskbody>
+</task>

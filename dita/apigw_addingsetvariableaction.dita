@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_addingsetvariableaction" xml:lang="en-us">
+<title>Adding a set variable action<ph rev="rev760"/></title>
+<shortdesc>You can add an assembly set variable action to set, add, or clear the variables in the
+API context. </shortdesc>
+<taskbody>
+<context>
+<p>You can use the following action to set, add, or clear a variable in the API context:<ul>
+<li>The set action assigns value to a variable:<ul>
+<li>When the specified variable does not exist, a new variable is created with assigned value.</li>
+<li>When the specified variable exists and it is not read-only, the configured value overrides the
+existing value. </li>
+</ul></li>
+<li>The add action adds a variable. This action can add a new header or append a new entry of the
+same header.</li>
+<li>The clear action deletes a variable. This action can remove a header when the data is processed
+in the assembly flow.</li>
+</ul></p>
+<p>When you assign value to a variable, follow these rules. Otherwise, error occurs and the current
+set variable action is ended.<ul>
+<li>The value must match the specified data type, number, string, or boolean.</li>
+<li>You cannot add the <codeph>message.status.code</codeph> variable. Instead, you can set it. The
+data type of this variable must be number, and the assigned value must be a three-digit integer from
+100 through 999.</li>
+</ul></p>
+</context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_assembly">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, select <uicontrol>Assembly Set Variable Action</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Specify the set variable actions.</cmd>
+<choicetable frame="all" relcolwidth="1.0* 3.1*">
+<chhead>
+<choptionhd>Action</choptionhd>
+<chdeschd>What to do</chdeschd>
+</chhead>
+<chrow>
+<choption><uicontrol>Add</uicontrol><?linebreak?><uicontrol>Set</uicontrol></choption>
+<chdesc>
+<ol>
+<li>Specify the variable name.</li>
+<li>(Optional) Specify the data type of the variable.</li>
+<li>Assign proper value to the variable.</li>
+</ol>
+</chdesc>
+</chrow>
+<chrow>
+<choption><uicontrol>Clear</uicontrol></choption>
+<chdesc>Specify the variable name.</chdesc>
+</chrow>
+</choicetable>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+</taskbody>
+<related-links>
+<link href="apigw_contextvariables.dita"/>
+</related-links>
+</task>

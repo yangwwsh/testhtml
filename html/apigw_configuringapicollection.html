@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating an API collection" />
+<meta name="abstract" content="An API collection packages the plans and subscribers to make APIs available to a specific group of API clients. The information instructs how to create an API collection." />
+<meta name="Description" content="An API collection packages the plans and subscribers to make APIs available to a specific group of API clients. The information instructs how to create an API collection." />
+<meta name="DC.Relation" scheme="URI" content="apigw_apirequestrouting_collection.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapiplan.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapisubscription.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapigw.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_configuringapicollection" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_configuringapigw.html" />
+<title>Creating an API collection</title>
+</head>
+<body id="apigw_configuringapicollection"><div role="main">
+<h1 class="title topictitle1">Creating an API collection<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">An API collection packages the plans and subscribers to make APIs available to a specific
+group of API clients. The information instructs how to create an API collection.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd7067e19">About this task</h2></div><div class="p">To create an API collection, provide the following settings:<ul class="ul"><li class="li">The routing prefixes that the <span class="ph">API Gateway</span> uses for
+collection routing. See the collection routing topic about how routing prefixes are used to match
+the target API collection for a request.<div class="note tip"><span class="tiptitle">Tip:</span> Although you can specify different routing
+prefix types for the API collections in a single <span class="ph">API Gateway</span>, to gain the maximum performance, use only one
+type within an <span class="ph">API Gateway</span>.</div>
+</li>
+<li class="li">The API plans to include in the API collection. </li>
+<li class="li">The API subscribers that are allowed to access the APIs in the API collection. The <span class="ph">API Gateway</span> identifies a client as an API subscriber
+through the API key security check. Therefore, to define an API subscriber, provide the following information:<ul class="ul"><li class="li">The client ID that identifies the subscriber.</li>
+<li class="li">The hashed client secret that secures the client ID.</li>
+<li class="li">Optionally, the name of the subscriber.</li>
+<li class="li">Optionally, the subscription, which comprises a list of plans that the subscriber subscribes
+to.</li>
+</ul>
+</li>
+<li class="li">Optionally, the default rate limit to apply for the requests that do not carry user credentials
+for API key security check.</li>
+</ul>
+</div>
+
+<div class="note note"><span class="notetitle">Note:</span> You should always use the default API processing rule and API error rule unless you clearly
+understand how the rules work and need customized rules for specific business requirements.</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd7067e57">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">API</kbd>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">From the search results, click <span class="ph uicontrol">API Collection</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Specify the routing prefixes. To add a routing prefix, do the following steps:</span> <ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Specify the routing prefix type.</span></li>
+<li class="li substep"><span class="ph cmd">Enter the routing prefix.</span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Done</span>.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand">Optional: <span class="ph cmd">Specify the default rate limit for API requests with no API key.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Specify the API plans to package in the API collection.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Specify the subscribers to allow access to the API collection. To add a subscriber, do the
+following steps:</span> <ol type="a" class="ol substeps"><li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Add</span>.</span></li>
+<li class="li substep"><span class="ph cmd">Enter the client ID.</span></li>
+<li class="li substep"><span class="ph cmd">Enter the client secret.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Enter the subscriber name.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Specify the subscription.</span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Done</span>.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save the changes to the running configuration.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Save Configuration</span> or <span class="ph uicontrol">Save changes</span> to save
+the changes to the persisted configuration.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_configuringapigw.html" title="How to configure an API Gateway. This information is the high-level procedure to create an API Gateway.">Creating an API Gateway</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="apigw_apirequestrouting_collection.html" title="The API Gateway determines the API collection to route the request to by matching the request URL against the routing prefix of each API collection. The collection routing follows certain rules, you must take the rules into consideration when you design routing prefixes for your API collections.">Collection routing</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="apigw_configuringapiplan.html" title="An API is not exposed for access unless you add the API into a plan. The information instructs how to configure an API plan to package a list of APIs to expose for access.">Creating an API plan</a></div>
+<div><a class="link" href="apigw_configuringapisubscription.html" title="A client can access only the APIs in the plans that the client subscribes to. An API subscription is a list of plans that a subscriber subscribes to. The information instructs how to create an API subscription.">Creating an API subscription</a></div>
+</div>
+</div></div></body>
+</html>

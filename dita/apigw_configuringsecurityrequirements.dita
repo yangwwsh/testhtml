@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_configuringsecurityrequirements" xml:lang="en-us">
+<title>Creating a security requirement<ph rev="rev760"/></title>
+<shortdesc>An API security requirement defines the required security checks that an API request must
+pass to call the API or operation.</shortdesc>
+<taskbody>
+<context>
+<p>You specify a security requirement by selecting one or more security definitions. When multiple
+security definitions are selected, the API request must pass all security checks that these security
+definitions specify.</p>
+<p>The following rules apply when you specify a security requirement:<ul>
+<li>If you want to authenticate the API requester through API keys and require the requester to show
+both client ID and client secret, you must apply two API key security definitions, one authenticates
+the client ID and the other authenticates the client secret.</li>
+<li>You cannot apply more than one basic authentication security definitions to an API.</li>
+<li>You cannot apply more than one OAuth security definitions to an API.</li>
+</ul></p>
+</context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_api">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, select <uicontrol>API Security Requirement</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Select the security definition to enforce.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+<postreq>Apply the security requirement:<ul>
+<li>To apply the requirement to all operations of an API, associate the security requirement to the
+API definition configuration.</li>
+<li>To apply the requirement to an API operation, associate the security requirement to the API
+operation configuration.</li>
+</ul></postreq>
+</taskbody>
+<related-links>
+<link href="apigw_configuringapi.dita"/>
+<link href="apigw_configuringapioperation.dita"/>
+</related-links>
+</task>

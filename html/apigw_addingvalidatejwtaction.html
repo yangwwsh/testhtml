@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Adding a validate JWT action" />
+<meta name="abstract" content="A validate JWT action defines the cryptographic material and methods to validate a JSON Web Token (JWT) in an API call to secure access to your APIs." />
+<meta name="Description" content="A validate JWT action defines the cryptographic material and methods to validate a JSON Web Token (JWT) in an API call to secure access to your APIs." />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringassembly.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_addingvalidatejwtaction" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_configuringassembly.html" />
+<title>Adding a validate JWT action</title>
+</head>
+<body id="apigw_addingvalidatejwtaction"><div role="main">
+<h1 class="title topictitle1">Adding a validate JWT action</h1>
+<div class="body taskbody"><p class="shortdesc">A validate JWT action defines the cryptographic material and methods to validate a JSON
+Web Token (JWT) in an API call to secure access to your APIs.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd2508e10">About this task</h2></div><div class="p">The validate JWT action extracts the JWT in the API call, verifies and decrypts the JWT,
+validates the claims, and stores all the claims into a context variable for subsequent use when the
+JWT validation succeeds. In a validate JWT action, you define the following settings.<ul class="ul"><li class="li">The JWT to be validated.<div class="note note"><span class="notetitle">Note:</span> The format of the authorization header must be
+<samp class="ph codeph">Authorization: Bearer <var class="keyword varname">jwt-token</var></samp>, where
+<var class="keyword varname">jwt-token</var> indicates the encoded JWT.</div>
+</li>
+<li class="li">Where to put all the claims that the JWT contains when the JWT validation succeeds.</li>
+<li class="li">Optionally, values to use to validate the issuer claim or audience claim in the JWT.<ul class="ul"><li class="li">When no value is specified, the action validates only the expiration
+<span class="q">"<samp class="ph codeph">exp</samp>"</span>claim and the not before <span class="q">"<samp class="ph codeph">nbf</samp>"</span> claim in the
+JWT.</li>
+<li class="li">When any value is specified, the action also validates the specified claim. If any specified
+claim fails, the JWT validation fails.</li>
+</ul>
+</li>
+<li class="li">The cryptographic material to decrypt or verify a JWT. The following guidelines apply.<ul class="ul"><li class="li">You can use a cryptographic object or a JWK to decrypt or verify the JWT. When both a
+cryptographic object and a JWK are specified, the cryptographic object is used.</li>
+<li class="li">If the original message is signed with a shared secret key, the cryptographic object that is
+specified must also be a shared secret key.</li>
+<li class="li">If the original message is signed with a private key, the cryptographic object that is specified
+must be a crypto certificate (public certificate).</li>
+<li class="li">If a JWK header parameter is included in the header of the JWT, the parameter must match the
+cryptographic object or JWK that is specified in the action. Otherwise, the JWT validation
+fails.</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p class="p">When the JWT validation succeeds, all the claims that the JWT contains are written to the
+specified context variable. When an error occurs, the action throws an error.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd2508e57">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">assembly</kbd>.</span></li>
+<li class="li step"><span class="ph cmd">From the search results, select <span class="ph uicontrol">Assembly Validate JWT Action</span>.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+<li class="li step"><span class="ph cmd">Specify the context variable that contains the JWT to be validated.</span></li>
+<li class="li step"><span class="ph cmd">Specify a context variable to store all the claims that the JWT contains.</span> After processing, the output data type is object.</li>
+<li class="li step">Optional: <span class="ph cmd">Specify the value to use to validate the issuer <span class="q">"<samp class="ph codeph">iss</samp>"</span> claim.</span></li>
+<li class="li step">Optional: <span class="ph cmd">Specify the value to use to validate the audience <span class="q">"<samp class="ph codeph">aud</samp>"</span> claim.</span></li>
+<li class="li step"><span class="ph cmd">When the JWT is encrypted, specify the cryptographic material to decrypt the JWT.</span> You can specify a cryptographic object (a shared secret key or certificate) or a context
+variable that contains the JWK to use to decrypt the JWT.</li>
+<li class="li step"><span class="ph cmd">When the JWT is signed, specify the cryptographic material to verify the JWT.</span> You can specify a cryptographic object (a shared secret key or certificate) or a context
+variable that contains the JWK to use to verify the JWT.</li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save the changes to the running configuration.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Save Configuration</span> or <span class="ph uicontrol">Save changes</span> to save
+the changes to the persisted configuration.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_configuringassembly.html" title="An assembly defines the data processing capabilities of an API definition. When an API is matched for an API request, the API execute action in the API processing rule runs the assembly of the API to respond to the request. The information instructs how to create an assembly.">Creating an assembly</a></div>
+</div>
+</div></div></body>
+</html>

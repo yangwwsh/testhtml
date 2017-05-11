@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_configuringapigw" xml:lang="en-us">
+<title>Creating an <ph conref="apigw_conref.dita#common/apigw"/><ph rev="rev760"
+/></title>
+<shortdesc>How to configure an <ph conref="apigw_conref.dita#common/apigw"/>. This
+information is the high-level procedure to create an <ph
+conref="apigw_conref.dita#common/apigw"/>.</shortdesc>
+<taskbody>
+<context>To create an <ph conref="apigw_conref.dita#common/apigw"/>, provide the
+following settings:<ul>
+<li>The protocol handlers to receive API requests. An <ph
+conref="apigw_conref.dita#common/apigw"/> can receive requests only through HTTP and
+HTTPS handlers.</li>
+<li>The API collections. Each API collection packages the subscribers and plans to make a collection
+of APIs available on the <ph conref="apigw_conref.dita#common/apigw"/>.</li>
+<li>The XML manager to manage the compilation and caching of style sheets, the caching of documents,
+and enforce constraints on document parsing.</li>
+</ul></context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_api">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, click <uicontrol>API Gateway</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Specify the protocol handlers to use to receive API requests.</cmd>
+</step>
+<step>
+<cmd>Specify the API collections to include in the <ph
+conref="apigw_conref.dita#common/apigw"/>.</cmd>
+</step>
+<step>
+<cmd>Specify the XML manager.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+</taskbody>
+<related-links>
+<link href="handler_http.html" format="html" scope="peer">
+<linktext>Configuring an HTTP handler</linktext>
+</link>
+<link href="handler_https.html" format="html" scope="peer">
+<linktext>Configuring an HTTPS handler</linktext>
+</link>
+<link href="xmlmanager.html" format="html" scope="peer">
+<linktext>XML managers</linktext>
+</link>
+</related-links>
+</task>

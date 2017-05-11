@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN"
+ "map.dtd">
+<map title="apim extension elements and functions" xml:lang="en-us">
+<topicref href="apigw_extensions.dita" navtitle="apim extension elements and functions">
+<topicref href="apigw_extension_elements.dita" navtitle="Extension elements">
+<topicref href="reject_apigatewayelement.dita" navtitle="apim:reject"/>
+<topicref href="set-variable_apigatewayelement.dita" navtitle="apim:set-variable"/>
+</topicref>
+<topicref href="apigw_extension_functions.dita" navtitle="Extension functions">
+<topicref href="get-api-property_apigatewayfunction.dita" navtitle="apim:get-api-property()"/>
+<topicref href="get-original-payload_apigatewayfunction.dita" navtitle="apim:get-original-payload()"/>
+<topicref href="get-variable_apigatewayfunction.dita" navtitle="apim:get-variable()"/>
+</topicref>
+</topicref>
+</map>

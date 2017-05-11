@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_configuringapioperation" xml:lang="en-us">
+<title>Creating an API operation<ph rev="rev760"/></title>
+<shortdesc>An API operation defines the HTTP method to execute against the resources. You can use
+GET, POST, PUT, DELETE, HEAD, PATCH, and OPTIONS operations for the API.</shortdesc>
+<taskbody>
+<context>
+<p>The following settings in the API operation override the corresponding setting in the
+configurations that reference the API operation.<ul>
+<li>The parameters that you specify here override the same parameters in the API path.</li>
+<li>The security requirements that you specify here override the API-level security
+requirements.</li>
+<li>You can set whether to remove the API-level consume declaration that is defined for the API. By
+default, the top-level consume declaration is applied to the operation. When removed, the operation
+can always be performed regardless of the content type.</li>
+<li>You can set whether to remove the API-level security declaration that is defined for the API. By
+default, the top-level security declaration is applied to the operation. When removed, an API client
+can call the API operation without passing any security check.</li>
+</ul></p>
+</context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_api">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, select <uicontrol>API Operation</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Specify the HTTP method to perform against the API.</cmd>
+</step>
+<step>
+<cmd>Specify the ID of the operation.</cmd>
+</step>
+<step importance="optional">
+<cmd>Specify the parameters that are applicable for the operation.</cmd>
+<substeps conref="apigw_configuringapipath.dita#apigw_configuringapipath/parameter">
+<substep>
+<cmd/>
+</substep>
+</substeps>
+</step>
+<step importance="optional">
+<cmd>Repeat the previous step to add another parameter.</cmd>
+</step>
+<step importance="optional">
+<cmd>Set whether to remove the API-level consume declaration for the operation.</cmd>
+</step>
+<step importance="optional">
+<cmd>When the top-level consume declaration is not removed, specify the MIME types that the API
+operation can consume.</cmd>
+</step>
+<step importance="optional">
+<cmd>Set whether to remove the API-level security declaration for the operation.</cmd>
+</step>
+<step importance="optional">
+<cmd>When the top-level security declaration is not removed, specify the security requirements to
+enforce for the operation.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+</taskbody>
+<related-links>
+<link href="apigw_securitydefinitions.dita"/>
+</related-links>
+</task>

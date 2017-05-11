@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Collection routing" />
+<meta name="abstract" content="The API Gateway determines the API collection to route the request to by matching the request URL against the routing prefix of each API collection. The collection routing follows certain rules, you must take the rules into consideration when you design routing prefixes for your API collections." />
+<meta name="Description" content="The API Gateway determines the API collection to route the request to by matching the request URL against the routing prefix of each API collection. The collection routing follows certain rules, you must take the rules into consideration when you design routing prefixes for your API collections." />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapicollection.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_apirequestrouting.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_apirequestrouting_collection" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_apirequestrouting.html" />
+<title>Collection routing</title>
+</head>
+<body id="apigw_apirequestrouting_collection"><div role="main">
+<h1 class="title topictitle1">Collection routing<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body conbody"><p class="shortdesc">The <span class="ph">API Gateway</span> determines the API
+collection to route the request to by matching the request URL against the routing prefix of each
+API collection. The collection routing follows certain rules, you must take the rules into
+consideration when you design routing prefixes for your API collections. </p>
+<p class="p">For each API collection, the <span class="ph">API Gateway</span> uses the
+routing prefix of the collection to form a complete URI as follows and accepts only the incoming
+requests with this URI.</p>
+<pre class="pre codeblock"><code>&lt;routing prefix&gt;&lt;base path&gt;&lt;operation path&gt;</code></pre>
+<dl class="dl"><dt class="dt dlterm">Routing prefix</dt>
+<dd class="dd">The <span class="ph">API Gateway</span> supports the following types of
+routing prefixes: <dl class="dl"><dt class="dt dlterm">URI</dt>
+<dd class="dd">When the routing prefix type is URI, the routing prefix must begin but not end with slash
+(<samp class="ph codeph">/</samp>). </dd>
+<dt class="dt dlterm">Host name</dt>
+<dd class="dd">When the routing prefix type is host name, the prefix must not start or end with period
+(<samp class="ph codeph">.</samp>). You need to specify only the first part of the host name (with domain name
+excluded); however, the request must use the complete URL with domain name included.</dd>
+</dl>
+You can use routing prefixes to organize your APIs into collections and subcollections. For
+example, if you have a collection of APIs serving for a certain purpose such as human resource, and
+the APIs are to be used by two segments of your organization, you might create two API collections
+with the organization name, purpose name, and segment name in the routing prefix. <div class="p">If the
+organization name is <samp class="ph codeph">myorg</samp>, the APIs serve for purpose <samp class="ph codeph">hr</samp>, and the
+two segments under the organization is <samp class="ph codeph">section1</samp> and <samp class="ph codeph">section2</samp>:<ul class="ul"><li class="li">When the routing prefix type is URI, the resulting routing prefixes are
+<samp class="ph codeph">/myorg/hr/section1</samp> and <samp class="ph codeph">/myorg/hr/section2</samp>.</li>
+<li class="li">When the routing prefix type is host name, the resulting routing prefixes are
+<samp class="ph codeph">section1.hr.myorg</samp> and <samp class="ph codeph">section2.hr.myorg</samp>.</li>
+</ul>
+</div>
+<p class="p">The default routing prefix is slash (<samp class="ph codeph">/</samp>) when the type is URI and blank
+when the type is host name. An API collection becomes the default collection in the <span class="ph">API Gateway</span> when the collection has a default routing
+prefix. The <span class="ph">API Gateway</span> routes a request to the
+default collection when other collections do not match. An <span class="ph">API Gateway</span> can have only one default collection;
+therefore, regardless of the prefix type, only one API collection can be configured with the default
+routing prefix.</p>
+</dd>
+<dd class="dd">You can assign multiple routing prefixes to an API collection. For example, you might have a
+collection of APIs that are already published for the organization. However, cases such as
+rebranding of the organization might cause that you need to use this same set of APIs through a
+different URL. In such cases, you can use two different routing prefixes for the API collection
+during the transition from the old organization to the new organization.</dd>
+<dt class="dt dlterm">Base path</dt>
+<dd class="dd">Base path on which the API is served. A base path must begin but not end with slash
+(<samp class="ph codeph">/</samp>). </dd>
+<dt class="dt dlterm">Operation path</dt>
+<dd class="dd">Relative path to the base path where the operations are available. An operation path must begin
+but not end with slash (<samp class="ph codeph">/</samp>). </dd>
+</dl>
+<div class="p">When an <span class="ph">API Gateway</span> receives a request, the <span class="ph">API Gateway</span> determines the API collection to route the
+request to according to the following rules in sequence:<ul class="ul"><li class="li">Rule 1: Match the URI-prefixed collections first and route to the collection whose routing
+prefix matches the most segments of the request URL.</li>
+<li class="li">Rule 2: When no collections are matched according to Rule 1, match the hostname-prefixed
+collections and route to the collection with the longest matched length of routing prefix.</li>
+<li class="li">Rule 3: When no collections are matched according to Rule 1 and 2, route to the URI-prefixed
+collection whose routing prefix is slash (<samp class="ph codeph">/</samp>).</li>
+<li class="li">Rule 4: When no collections are matched according to Rule 1, 2, and 3, route to the
+hostname-prefixed collection whose routing prefix is blank.</li>
+</ul>
+</div>
+<div class="p">The following table uses an example <span class="ph">API Gateway</span>
+with seven API collections to explain the collection routing rules. <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="apigw_apirequestrouting_collection__table_yn3_tw1_gy" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. API collection routing example</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry thleft" valign="top" width="25%" id="d5420e154">API collection name</th>
+<th class="entry thleft" valign="top" width="25%" id="d5420e156">Routing prefix type</th>
+<th class="entry thleft" valign="top" width="25%" id="d5420e158">Routing prefix</th>
+<th class="entry thleft" valign="top" width="25%" id="d5420e160">Base path</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="25%" headers="d5420e154 ">A</td>
+<td class="entry" valign="top" width="25%" headers="d5420e156 ">URI</td>
+<td class="entry" valign="top" width="25%" headers="d5420e158 "><samp class="ph codeph">/pet/cat</samp></td>
+<td class="entry" valign="top" width="25%" headers="d5420e160 "><samp class="ph codeph">/api</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5420e154 ">B</td>
+<td class="entry" valign="top" width="25%" headers="d5420e156 ">URI</td>
+<td class="entry" valign="top" width="25%" headers="d5420e158 "><samp class="ph codeph">/pet/dog</samp></td>
+<td class="entry" valign="top" width="25%" headers="d5420e160 "><samp class="ph codeph">/api</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5420e154 ">C</td>
+<td class="entry" valign="top" width="25%" headers="d5420e156 ">URI</td>
+<td class="entry" valign="top" width="25%" headers="d5420e158 "><samp class="ph codeph">/pet</samp></td>
+<td class="entry" valign="top" width="25%" headers="d5420e160 "><samp class="ph codeph">/cat</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5420e154 ">D</td>
+<td class="entry" valign="top" width="25%" headers="d5420e156 ">URI</td>
+<td class="entry" valign="top" width="25%" headers="d5420e158 "><samp class="ph codeph">/pet2</samp></td>
+<td class="entry" valign="top" width="25%" headers="d5420e160 "><samp class="ph codeph">/cat</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5420e154 ">E</td>
+<td class="entry" valign="top" width="25%" headers="d5420e156 ">URI</td>
+<td class="entry" valign="top" width="25%" headers="d5420e158 "><samp class="ph codeph">/</samp></td>
+<td class="entry" valign="top" width="25%" headers="d5420e160 "><samp class="ph codeph">/xyz </samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5420e154 ">F</td>
+<td class="entry" valign="top" width="25%" headers="d5420e156 ">Host name</td>
+<td class="entry" valign="top" width="25%" headers="d5420e158 "><samp class="ph codeph">pet</samp></td>
+<td class="entry" valign="top" width="25%" headers="d5420e160 "><samp class="ph codeph">/cat</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="25%" headers="d5420e154 ">G</td>
+<td class="entry" valign="top" width="25%" headers="d5420e156 ">Host name</td>
+<td class="entry" valign="top" width="25%" headers="d5420e158 "><samp class="ph codeph">pet2</samp></td>
+<td class="entry" valign="top" width="25%" headers="d5420e160 "><samp class="ph codeph">/cat</samp></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul class="ul"><li class="li">According to Rule 1:<ul class="ul"><li class="li">When the <span class="ph">API Gateway</span> receives a request with a URL
+of <samp class="ph codeph">http://&lt;host&gt;/pet2/cat/api</samp>, the request is routed to collection D because
+only the prefix of D matches a complete section of the request URL.</li>
+<li class="li">When the <span class="ph">API Gateway</span> receives a request with a URL
+of <samp class="ph codeph">https://&lt;host&gt;/pet/cat/api/pets</samp>, although both A and C are matched, the
+request is routed to collection A because the routing prefix of collection A matches more segments
+of the request URL.</li>
+<li class="li">When the <span class="ph">API Gateway</span> receives a request with a URL
+of <samp class="ph codeph">http://pet2.&lt;subdomain&gt;/pet2/cat/api</samp>, although both D and G are matched, the
+request is routed to collection D because the URI-prefixed collection takes higher priority.</li>
+</ul>
+</li>
+<li class="li">According to Rule 2, when the <span class="ph">API Gateway</span> receives
+a request with a URL of <samp class="ph codeph">http://pet20.&lt;subdomain&gt;/cat/api</samp>, the request is routed
+to collection G because the matched string length of G is longer than F.</li>
+<li class="li">According to Rule 3, when the <span class="ph">API Gateway</span> receives
+a request with a URL of <samp class="ph codeph">https://&lt;host&gt;/food/...</samp>, the request is routed to
+collection E because no collections are matched according to Rule 1 and 2.</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_apirequestrouting.html" title="When API Gateway receives an API request through the handlers, the API Gateway first routes the request to a matching API collection. When the collection is matched, the API Gateway triggers the API processing rule of the API collection to execute the required API operation and respond to the API request. The API processing rule comprises a set of API actions in a defined sequence.">Routing of API requests</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="apigw_configuringapicollection.html" title="An API collection packages the plans and subscribers to make APIs available to a specific group of API clients. The information instructs how to create an API collection.">Creating an API collection</a></div>
+</div>
+</div></div></body>
+</html>

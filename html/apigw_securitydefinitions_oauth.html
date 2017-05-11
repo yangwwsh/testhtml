@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating an OAuth security definition" />
+<meta name="abstract" content="Create an OAuth security definition to control accesses to an API through the OAuth authorization standard." />
+<meta name="Description" content="Create an OAuth security definition to control accesses to an API through the OAuth authorization standard." />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringsecurityrequirements.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_securitydefinitions.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_securitydefinitions_oauth" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_securitydefinitions.html" />
+<title>Creating an OAuth security definition</title>
+</head>
+<body id="apigw_securitydefinitions_oauth"><div role="main">
+<h1 class="title topictitle1">Creating an OAuth security definition<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">Create an OAuth security definition to control accesses to an API through the OAuth
+authorization standard.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd16105e19">About this task</h2></div><div class="p">You can create an OAuth security definition that uses one of the following flows according to the
+OAuth grant type that you want to enforce. The following table shows the different types of OAuth
+flow and the corresponding OAuth grant types:<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="apigw_securitydefinitions_oauth__table_st4_tqn_ky" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. OAuth flow and corresponding OAuth grant type</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry thleft" valign="top" width="50%" id="d16105e30">OAuth flow</th>
+<th class="entry thleft" valign="top" width="50%" id="d16105e32">OAuth grant type</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="50%" headers="d16105e30 ">Access code</td>
+<td class="entry" valign="top" width="50%" headers="d16105e32 ">Authorization Code</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d16105e30 ">Application</td>
+<td class="entry" valign="top" width="50%" headers="d16105e32 ">Client Credentials</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d16105e30 ">Implicit </td>
+<td class="entry" valign="top" width="50%" headers="d16105e32 ">Implicit OAuth</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="50%" headers="d16105e30 ">Password</td>
+<td class="entry" valign="top" width="50%" headers="d16105e32 ">Resource Owner Password Credentials</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd16105e55">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">API</kbd>.</span></li>
+<li class="li step"><span class="ph cmd">From the search results, select <span class="ph uicontrol">API Security OAuth</span>.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+<li class="li step"><span class="ph cmd">Select the OAuth flow to use.</span></li>
+<li class="li step"><span class="ph cmd">Specify the scopes that you want to cover access to your API.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save the changes to the running configuration.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Save Configuration</span> or <span class="ph uicontrol">Save changes</span> to save
+the changes to the persisted configuration.</span></li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd16105e101">What to do next</h2></div>To enforce the security scheme, add the OAuth security definition into a security
+requirement of an API or operation.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_securitydefinitions.html" title="API Gateway allows you to secure your APIs through API key, basic authentication, and OAuth security schemes.">API security</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="apigw_configuringsecurityrequirements.html" title="An API security requirement defines the required security checks that an API request must pass to call the API or operation.">Creating a security requirement</a></div>
+</div>
+</div></div></body>
+</html>

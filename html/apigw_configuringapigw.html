@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating an API Gateway" />
+<meta name="abstract" content="How to configure an API Gateway. This information is the high-level procedure to create an API Gateway." />
+<meta name="Description" content="How to configure an API Gateway. This information is the high-level procedure to create an API Gateway." />
+<meta name="DC.Relation" scheme="URI" content="handler_http.html" />
+<meta name="DC.Relation" scheme="URI" content="handler_https.html" />
+<meta name="DC.Relation" scheme="URI" content="xmlmanager.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_overview.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapicollection.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapiplan.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapisubscription.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_configuringapigw" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_overview.html" />
+<title>Creating an API Gateway</title>
+</head>
+<body id="apigw_configuringapigw"><div role="main">
+<h1 class="title topictitle1">Creating an <span class="ph">API Gateway</span><span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">How to configure an <span class="ph">API Gateway</span>. This
+information is the high-level procedure to create an <span class="ph">API Gateway</span>.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd7535e27">About this task</h2></div>To create an <span class="ph">API Gateway</span>, provide the
+following settings:<ul class="ul"><li class="li">The protocol handlers to receive API requests. An <span class="ph">API Gateway</span> can receive requests only through HTTP and
+HTTPS handlers.</li>
+<li class="li">The API collections. Each API collection packages the subscribers and plans to make a collection
+of APIs available on the <span class="ph">API Gateway</span>.</li>
+<li class="li">The XML manager to manage the compilation and caching of style sheets, the caching of documents,
+and enforce constraints on document parsing.</li>
+</ul>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd7535e45">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">API</kbd>.</span></li>
+<li class="li step"><span class="ph cmd">From the search results, click <span class="ph uicontrol">API Gateway</span>.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+<li class="li step"><span class="ph cmd">Specify the protocol handlers to use to receive API requests.</span></li>
+<li class="li step"><span class="ph cmd">Specify the API collections to include in the <span class="ph">API Gateway</span>.</span></li>
+<li class="li step"><span class="ph cmd">Specify the XML manager.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save the changes to the running configuration.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Save Configuration</span> or <span class="ph uicontrol">Save changes</span> to save
+the changes to the persisted configuration.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringapicollection.html">Creating an API collection</a></span><br />
+An API collection packages the plans and subscribers to make APIs available to a specific
+group of API clients. The information instructs how to create an API collection.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringapiplan.html">Creating an API plan</a></span><br />
+An API is not exposed for access unless you add the API into a plan. The information
+instructs how to configure an API plan to package a list of APIs to expose for access.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringapisubscription.html">Creating an API subscription</a></span><br />
+A client can access only the APIs in the plans that the client subscribes to. An API
+subscription is a list of plans that a subscriber subscribes to. The information instructs how to
+create an API subscription.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_overview.html" title="An API Gateway receives API requests and routes the request to a matching API that is provisioned natively in the API Gateway. The API Gateway then runs the assembly of the API to respond to the request.">API Gateway</a></div>
+</div>
+<div class="relinfo"><strong>Related information</strong>:<br />
+<div><a class="link" href="handler_http.html">Configuring an HTTP handler</a></div>
+<div><a class="link" href="handler_https.html">Configuring an HTTPS handler</a></div>
+<div><a class="link" href="xmlmanager.html">XML managers</a></div>
+</div>
+</div></div></body>
+</html>

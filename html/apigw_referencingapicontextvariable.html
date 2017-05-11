@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Accessing and manipulating an API context variable" />
+<meta name="abstract" content="You can access and manipulate a referenced API context variable through assembly actions. The information instructs how to reference a variable in the API context through the assembly actions." />
+<meta name="Description" content="You can access and manipulate a referenced API context variable through assembly actions. The information instructs how to reference a variable in the API context through the assembly actions." />
+<meta name="DC.Relation" scheme="URI" content="apigw_addingsetvariableaction.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_addinggatewayscriptaction.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_addingxsltaction.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_extensions.html" />
+<meta name="DC.Relation" scheme="URI" content="apigateway_gatewayscript_general.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringassembly.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_referencingapicontextvariable" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_configuringassembly.html" />
+<title>Accessing and manipulating an API context variable</title>
+</head>
+<body id="apigw_referencingapicontextvariable"><div role="main">
+<h1 class="title topictitle1">Accessing and manipulating an API context variable<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">You can access and manipulate a referenced API context variable through assembly actions.
+The information instructs how to reference a variable in the API context through the assembly
+actions.</p>
+<div class="section prereq"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd14787e19">Before you begin</h2></div><p class="p">Check the list of supported variables in the API context.</p>
+</div>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd14787e22">About this task</h2></div><div class="p">You can get or set the value for a referenced variable.<ul class="ul"><li class="li">Get the value for a variable through one of the following methods:<ul class="ul"><li class="li">Through the assembly <span class="ph">GatewayScript</span> action, run a <span class="ph">GatewayScript</span> file that uses the
+<samp class="ph codeph">apim.getVariable()</samp> API.</li>
+<li class="li">Through the assembly <span class="ph">GatewayScript</span> action, run a <span class="ph">GatewayScript</span> file that uses the <samp class="ph codeph">context</samp>
+object.</li>
+<li class="li">Through the assembly XSLT action, run a stylesheet that uses the
+<samp class="ph codeph">apim:get-variable()</samp> extension function.</li>
+<li class="li">In a supported field of certain assembly actions, reference a variable inline.</li>
+</ul>
+</li>
+<li class="li">Set the value for a variable through one of the following methods:<ul class="ul"><li class="li">Through the assembly set variable action.</li>
+<li class="li">Through the assembly <span class="ph">GatewayScript</span> action, run a <span class="ph">GatewayScript</span> file that uses the
+<samp class="ph codeph">apim.setVariable()</samp> API.</li>
+<li class="li">Through the assembly <span class="ph">GatewayScript</span> action, run a <span class="ph">GatewayScript</span> file that uses the <samp class="ph codeph">context</samp>
+object.</li>
+<li class="li">Through the assembly XSLT action, run a stylesheet that uses the
+<samp class="ph codeph">apim:set-variable</samp> extension element.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd14787e90">Procedure</h2></div><ul class="ul steps-unordered"><li class="li step stepexpand"><span class="ph cmd">Through the assembly <span class="ph">GatewayScript</span> action</span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">Open the <span class="ph">GatewayScript</span> file for edit.</span></li>
+<li class="li substep"><span class="ph cmd">Use the APIs in the <samp class="ph codeph">apim</samp> module to get or set a variable.</span></li>
+<li class="li substep"><span class="ph cmd">Associate the <span class="ph">GatewayScript</span> file to an assembly <span class="ph">GatewayScript</span> action.</span></li>
+</ol>
+For the syntax, see the information about the <span class="ph">GatewayScript</span> objects and modules for the <span class="ph">API Gateway</span>.</li>
+<li class="li step stepexpand"><span class="ph cmd">Through the assembly XSLT action</span> <ol class="ol substeps"><li class="li substep"><span class="ph cmd">Open the stylesheet for edit.</span></li>
+<li class="li substep"><span class="ph cmd">Use the relevant <span class="ph">API Gateway</span> extension function and element
+to get or set a variable.</span></li>
+<li class="li substep"><span class="ph cmd">Associate the stylesheet to an assembly XSLT action.</span></li>
+</ol>
+For the syntax, see the reference information about the <samp class="ph codeph">apim</samp> extension
+functions and elements.</li>
+<li class="li step stepexpand"><span class="ph cmd">Inline reference</span> <ol class="ol substeps"><li class="li substep substepexpand"><span class="ph cmd">In the assembly action configuration, locate the property that you want to use a context
+variable as the value.</span></li>
+<li class="li substep substepexpand"><span class="ph cmd">Enter <samp class="ph codeph">$(variable)</samp>.</span> <div class="p">When the variable to reference is an API property, use one of the following methods:<ul class="ul"><li class="li"><pre class="pre codeblock"><code>$(api.properties.<var class="keyword varname">property_name</var>)</code></pre>
+</li>
+<li class="li"><pre class="pre codeblock"><code>$(<var class="keyword varname">property_name</var>)</code></pre>
+</li>
+</ul>
+Where, <var class="keyword varname">property_name</var> is the name of the property to reference. </div>
+
+<div class="p"><samp class="ph codeph">$(api.properties.<var class="keyword varname">property_name</var>)</samp> is the absolute expression to
+reference a property. The short form <samp class="ph codeph">$(<var class="keyword varname">property_name</var>)</samp> applies
+only when the assembly action does not have a property with the same name. You can use inline
+reference of a custom API property for the following assembly action settings:<ul class="ul"><li class="li">The URL property of the assembly invoke action</li>
+<li class="li">The variable name and variable assignment properties of the assembly set variable action</li>
+<li class="li">The case property of the assembly switch action</li>
+<li class="li">The error identifier and error text properties of the assembly throw action</li>
+</ul>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_configuringassembly.html" title="An assembly defines the data processing capabilities of an API definition. When an API is matched for an API request, the API execute action in the API processing rule runs the assembly of the API to respond to the request. The information instructs how to create an assembly.">Creating an assembly</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="apigw_extensions.html" title="The apim extension elements and functions documentation provides information about how to use the API Gateway extension elements and functions to manipulate the API context.">apim extension elements and functions</a></div>
+<div><a class="link" href="apigateway_gatewayscript_general.html" title="The GatewayScript programming in API Gateway follows the programming guidelines of the DataPower Gateway Gateway programming model.">GatewayScript APIs for API management</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="apigw_addingsetvariableaction.html" title="You can add an assembly set variable action to set, add, or clear the variables in the API context.">Adding a set variable action</a></div>
+<div><a class="link" href="apigw_addinggatewayscriptaction.html" title="Add a GatewayScript action to the assembly. The GatewayScript action uses a specified GatewayScript file in a directory on the DataPower Gateway.">Adding a GatewayScript action</a></div>
+<div><a class="link" href="apigw_addingxsltaction.html" title="You can use an assembly XSLT action to run a stylesheet for the current payload from the API context.">Adding an XSLT action to run a stylesheet for the current payload</a></div>
+</div>
+</div></div></body>
+</html>

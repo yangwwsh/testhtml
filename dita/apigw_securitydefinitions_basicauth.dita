@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_securitydefinitions_basicauth" xml:lang="en-us">
+<title>Creating a basic authentication security definition<ph rev="rev760"/></title>
+<shortdesc>Create a basic authentication security definition to specify the authentication URL or
+LDAP user registry to authenticate accesses to APIs. </shortdesc>
+<taskbody>
+<context>
+<p>You can authenticate users with an authentication URL or an LDAP registry.<ul>
+<li>When you use an authentication URL, the <ph conref="apigw_conref.dita#common/apigw"/> sends the
+credentials that it collects from the API client to the endpoint that is specified in the URL for
+validation. When the user is authenticated, the authentication URL returns an HTTP <codeph>200
+OK</codeph> response status code. All other HTTP response status codes result in an authentication
+failure and the access is denied.</li>
+<li>When you use an LDAP registry, the <ph conref="apigw_conref.dita#common/apigw"/> uses an LDAP
+server to authenticate the API client.</li>
+</ul></p>
+</context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_api">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, select <uicontrol>API Security Basic Authentication</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Select how to authenticate users.</cmd>
+</step>
+<step>
+<cmd>When you authenticate users with an authentication URL, complete the following steps.</cmd>
+<substeps>
+<substep>
+<cmd>Enter the URL to validate client credentials.</cmd>
+</substep>
+<substep importance="optional">
+<cmd>Select the SSL client profile to secure connections between the <ph
+conref="apigw_conref.dita#common/idag2nd"/> and the authentication server.</cmd>
+</substep>
+</substeps>
+</step>
+<step>
+<cmd>When you authenticate users with an LDAP registry, select the name of the API LDAP Registry
+configuration to authenticate the API request.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+<postreq>To enforce the security scheme, add the basic authentication security definition into a
+security requirement of an API or operation.</postreq>
+</taskbody>
+<related-links>
+<link href="apigw_configuringldapregistry.dita"/>
+<link href="apigw_configuringsecurityrequirements.dita"/>
+</related-links>
+</task>

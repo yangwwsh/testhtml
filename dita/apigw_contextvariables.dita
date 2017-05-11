@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="apigw_contextvariables" xml:lang="en-us">
+<title> Variables in the API context<ph rev="rev760"/></title>
+<shortdesc>An API context is a set of variables. The input and output of the processing and assembly
+actions are stored in these variables. You can access and manipulate these variables by referencing
+them through assembly actions.</shortdesc>
+<refbody>
+<section>
+<p>A context variable is relevant during an API call, for example, the input of the call, the path
+of the call, or the message during the call.</p>
+<p>The following table shows a list of available API context variables on the <ph
+conref="apigw_conref.dita#common/apigw"/>.<table frame="all" rowsep="1" colsep="1"
+id="table_hvj_h3q_zy">
+<title>Supported API context variables</title>
+<tgroup cols="2">
+<colspec colname="c1" colnum="1" colwidth="1*"/>
+<colspec colname="c2" colnum="2" colwidth="2.03*"/>
+<thead>
+<row>
+<entry>Variable name</entry>
+<entry>Description</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><codeph>api.name</codeph></entry>
+<entry>The API title.</entry>
+</row>
+<row>
+<entry><b><i><u><codeph>api.document</codeph></u></i></b></entry>
+<entry><b><i><u>The OpenAPI (Swagger 2.0) document.</u></i></b></entry>
+</row>
+<row>
+<entry><codeph>api.root</codeph></entry>
+<entry>The API base path.</entry>
+</row>
+<row>
+<entry><codeph>api.version</codeph></entry>
+<entry>The version string of the API.</entry>
+</row>
+<row>
+<entry><codeph>api.endpoint.address</codeph></entry>
+<entry>The address of the API Gateway endpoint.</entry>
+</row>
+<row>
+<entry><codeph>api.endpoint.hostname</codeph></entry>
+<entry>The host name of the API Gateway endpoint, as requested by the application.</entry>
+</row>
+<row>
+<entry><codeph>api.operation.id</codeph></entry>
+<entry>The ID of the operation.</entry>
+</row>
+<row>
+<entry><codeph>api.operation.path</codeph></entry>
+<entry>The path of the operation as defined in OpenAPI (Swagger 2.0).</entry>
+</row>
+<row>
+<entry><codeph>api.org.id</codeph></entry>
+<entry>The organization ID of the API provider.</entry>
+</row>
+<row>
+<entry><codeph>api.org.name</codeph></entry>
+<entry>The organization short name of the API provider.</entry>
+</row>
+<row>
+<entry><codeph>api.type</codeph></entry>
+<entry>The API type: REST or SOAP.</entry>
+</row>
+<row>
+<entry><codeph>api.properties.<varname>propertyname</varname></codeph></entry>
+<entry>
+<lines>Retrieves the values of properties that are set for this API. The property values are collection-specific.</lines>
+<lines>For more information about API properties, see <xref href="apigw_properties.dita"/>.</lines>
+</entry>
+</row>
+<row>
+<entry><codeph>plan.name</codeph></entry>
+<entry>The name of the plan.</entry>
+</row>
+<row>
+<entry><codeph>plan.id</codeph></entry>
+<entry>The unique identifier of the plan.</entry>
+</row>
+<row>
+<entry><codeph>plan.version</codeph></entry>
+<entry>The version number of the plan.</entry>
+</row>
+<row>
+<entry><codeph>plan.rate-limits</codeph></entry>
+<entry>The rate limit, that is, the number of API calls per time interval, of the plan.</entry>
+</row>
+<row>
+<entry><codeph>plan.rate-limits[index].value</codeph></entry>
+<entry>The value of the rate limit. The syntax is
+<codeph><varname>Rate</varname>/<varname>IntervalUnit</varname></codeph>.</entry>
+</row>
+<row>
+<entry><codeph>plan.rate-limits[index].hard-limit</codeph></entry>
+<entry>The setting of the hard limit.</entry>
+</row>
+<row>
+<entry><codeph>env.path</codeph></entry>
+<entry>The path segment that represents this collection.</entry>
+</row>
+<row>
+<entry><codeph>request.authorization</codeph></entry>
+<entry>The parsed HTTP <codeph>authorization</codeph> header.</entry>
+</row>
+<row>
+<entry><codeph>request.body</codeph></entry>
+<entry>The payload from the incoming request.</entry>
+</row>
+<row>
+<entry><codeph>request.content-type</codeph></entry>
+<entry>Normalized content-type value.</entry>
+</row>
+<row>
+<entry><codeph>request.date</codeph></entry>
+<entry>A date object that represents approximately when the request was received by the API
+Gateway.</entry>
+</row>
+<row>
+<entry><codeph>request.headers.<varname>headername</varname></codeph></entry>
+<entry>The value of the named HTTP request header.</entry>
+</row>
+<row>
+<entry><codeph>request.parameters</codeph></entry>
+<entry>You can obtain your incoming parameters from path and query parameters. </entry>
+</row>
+<row>
+<entry><codeph>request.path</codeph></entry>
+<entry>The path section of the <codeph>request.uri</codeph> that starts with the base path of the
+API, including the '/' character that begins the base path.</entry>
+</row>
+<row>
+<entry><codeph>request.querystring</codeph></entry>
+<entry>The request query string without the leading question mark.</entry>
+</row>
+<row>
+<entry><codeph>request.search</codeph></entry>
+<entry>The request query string with the leading question mark.</entry>
+</row>
+<row>
+<entry><codeph>request.uri</codeph></entry>
+<entry>The full HTTP request URI from the application.</entry>
+</row>
+<row>
+<entry><codeph>request.verb</codeph></entry>
+<entry>The HTTP verb of this request.</entry>
+</row>
+<row>
+<entry><codeph>client.app.name</codeph></entry>
+<entry>The name of the application that is identified as having issued the request.</entry>
+</row>
+<row>
+<entry><codeph>client.app.id</codeph></entry>
+<entry>The client ID or application key that is received on the request.</entry>
+</row>
+<row>
+<entry><codeph>client.app.secret</codeph></entry>
+<entry>The client secret that is received in the request.</entry>
+</row>
+<row>
+<entry><b><i><u><codeph>client.org.id</codeph></u></i></b></entry>
+<entry><b><i><u>The unique identification key of the organization that owns this
+application.</u></i></b></entry>
+</row>
+<row>
+<entry><b><i><u><codeph>client.org.name</codeph></u></i></b></entry>
+<entry><b><i><u>The name of the organization that owns this application.</u></i></b></entry>
+</row>
+<row>
+<entry><codeph>message.body</codeph></entry>
+<entry>The payload of the request or response message.</entry>
+</row>
+<row>
+<entry><codeph>message.headers.<varname>name</varname></codeph></entry>
+<entry>The value of the named HTTP request header.</entry>
+</row>
+<row>
+<entry><codeph>message.status.code</codeph></entry>
+<entry>The HTTP status code of the response.</entry>
+</row>
+<row>
+<entry><codeph>message.status.reason</codeph></entry>
+<entry>The HTTP reason phrase of the response.</entry>
+</row>
+<row>
+<entry><i><u><b><codeph>oauth.access-token</codeph></b></u></i></entry>
+<entry><i><u><b>If the request is authenticated with OAuth, this variable contains the access token
+string.</b></u></i></entry>
+</row>
+<row>
+<entry><i><u><b><codeph>oauth.resource-owner</codeph></b></u></i></entry>
+<entry><i><u><b>If the request is authenticated with OAuth, this variable contains the name of the
+resource owner.</b></u></i></entry>
+</row>
+<row>
+<entry><i><u><b><codeph>oauth.scope</codeph></b></u></i></entry>
+<entry><i><u><b>If the request is authenticated with OAuth, this variable contains the scope of this
+access token.</b></u></i></entry>
+</row>
+<row>
+<entry><i><u><b><codeph>oauth.miscinfo</codeph></b></u></i></entry>
+<entry><i><u><b>This variable contains information explicitly included in the following headers:
+</b></u></i></entry>
+</row>
+<row>
+<entry><i><u><b><codeph>oauth.not-before</codeph></b></u></i></entry>
+<entry><i><u><b>If the request is authenticated with OAuth, this variable contains the date when the
+token was issued.</b></u></i></entry>
+</row>
+<row>
+<entry><i><u><b><codeph>oauth.not-after</codeph></b></u></i></entry>
+<entry><i><u><b>If the request is authenticated with OAuth, this variable contains the date when the
+token expires.</b></u></i></entry>
+</row>
+<row>
+<entry><codeph>system.datetime</codeph></entry>
+<entry>Returns the current time in the system time zone in a JSON object.</entry>
+</row>
+<row>
+<entry><codeph>system.time.hour</codeph></entry>
+<entry>Returns a number 0 - 23 inclusive, representing the hour of the current time in the system
+time zone.</entry>
+</row>
+<row>
+<entry><codeph>system.time.minute</codeph></entry>
+<entry>Returns a number 0 - 59 inclusive representing the minute of the current time in the system
+time zone.</entry>
+</row>
+<row>
+<entry><codeph>system.time.seconds</codeph></entry>
+<entry>Returns a number 0 - 59 inclusive representing the seconds of the current time in the system
+time zone.</entry>
+</row>
+<row>
+<entry><codeph>system.date</codeph></entry>
+<entry>Returns a JSON object that represents the current date in the system time zone.</entry>
+</row>
+<row>
+<entry><codeph>system.date.day-of-week</codeph></entry>
+<entry>Returns a number 1 - 7 (Monday to Sunday) inclusive representing the day of the week in the
+system time zone.</entry>
+</row>
+<row>
+<entry><codeph>system.date.day-of-month</codeph></entry>
+<entry>Returns a number 1 - 31 representing the day of the month in the system time zone.</entry>
+</row>
+<row>
+<entry><codeph>system.date.year</codeph></entry>
+<entry>Returns a four-digit number that represents the year in the system time zone.</entry>
+</row>
+<row>
+<entry><codeph>system.timezone</codeph></entry>
+<entry>Returns a system time zone ISO 8601 identifier, which might include a sign, a two-digit hour,
+and minutes. For example, <systemoutput>-04:00</systemoutput>.</entry>
+</row>
+</tbody>
+</tgroup>
+</table></p>
+</section>
+</refbody>
+</reference>

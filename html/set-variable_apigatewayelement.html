@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="apim:set-variable" />
+<meta name="abstract" content="Assigns a value to an API context variable." />
+<meta name="Description" content="Assigns a value to an API context variable." />
+<meta name="DC.Relation" scheme="URI" content="apigw_extension_elements.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="set-variable_apigatewayelement" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_extension_elements.html" />
+<title>apim:set-variable</title>
+</head>
+<body id="set-variable_apigatewayelement"><div role="main">
+<h1 class="title topictitle1"><samp class="ph codeph">apim:set-variable</samp><span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body refbody"><p class="shortdesc">Assigns a value to an API context variable.</p>
+<div class="section"><h2 class="title sectiontitle">Namespace declaration</h2>
+<ul class="sl simple"><li class="sli"><samp class="ph codeph">xmlns:apim="http://www.ibm.com/apimanagement"</samp></li>
+<li class="sli"><samp class="ph codeph">extension-element-prefixes="apim"</samp></li>
+</ul>
+</div>
+<div class="section refsyn"><h2 class="title sectiontitle">Syntax</h2>
+<pre class="pre codeblock"><code>&lt;apim:set-variable
+  name="<var class="keyword varname">name</var>"
+  value="<var class="keyword varname">value</var>"/&gt;</code></pre>
+</div>
+<div class="section"><h2 class="title sectiontitle">Attributes</h2>
+<dl class="dl"><dt class="dt dlterm"><samp class="ph codeph">name="<var class="keyword varname">name</var>"</samp></dt>
+<dd class="dd">The <samp class="ph codeph">xs:string</samp> that specifies the name of the API context variable.</dd>
+<dt class="dt dlterm"><samp class="ph codeph">value="<var class="keyword varname">value</var>"</samp></dt>
+<dd class="dd">Specifies the value of the API context variable.</dd>
+</dl>
+</div>
+<div class="section"><h2 class="title sectiontitle">Guidelines</h2>
+<p class="p">The <samp class="ph codeph">apim:set-variable</samp> extension element assigns a value to an API context
+variable.</p>
+</div>
+<div class="example"><h2 class="title sectiontitle">Example</h2>
+<pre class="pre codeblock"><code>&lt;xsl:template match="/"&gt;
+    &lt;apim:set-variable name="'my.orderDate'" value="./order/@date"/&gt;
+&lt;/xsl:template&gt;</code></pre>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_extension_elements.html" title="You can use the API Gateway extension elements to manipulate the API context.">Extension elements</a></div>
+</div>
+</div></div></body>
+</html>

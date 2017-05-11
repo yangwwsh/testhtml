@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Adding a set variable action" />
+<meta name="abstract" content="You can add an assembly set variable action to set, add, or clear the variables in the API context." />
+<meta name="Description" content="You can add an assembly set variable action to set, add, or clear the variables in the API context." />
+<meta name="DC.Relation" scheme="URI" content="apigw_contextvariables.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringassembly.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_addingsetvariableaction" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_configuringassembly.html" />
+<title>Adding a set variable action</title>
+</head>
+<body id="apigw_addingsetvariableaction"><div role="main">
+<h1 class="title topictitle1">Adding a set variable action<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">You can add an assembly set variable action to set, add, or clear the variables in the
+API context. </p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd1577e19">About this task</h2></div><div class="p">You can use the following action to set, add, or clear a variable in the API context:<ul class="ul"><li class="li">The set action assigns value to a variable:<ul class="ul"><li class="li">When the specified variable does not exist, a new variable is created with assigned value.</li>
+<li class="li">When the specified variable exists and it is not read-only, the configured value overrides the
+existing value. </li>
+</ul>
+</li>
+<li class="li">The add action adds a variable. This action can add a new header or append a new entry of the
+same header.</li>
+<li class="li">The clear action deletes a variable. This action can remove a header when the data is processed
+in the assembly flow.</li>
+</ul>
+</div>
+
+<div class="p">When you assign value to a variable, follow these rules. Otherwise, error occurs and the current
+set variable action is ended.<ul class="ul"><li class="li">The value must match the specified data type, number, string, or boolean.</li>
+<li class="li">You cannot add the <samp class="ph codeph">message.status.code</samp> variable. Instead, you can set it. The
+data type of this variable must be number, and the assigned value must be a three-digit integer from
+100 through 999.</li>
+</ul>
+</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd1577e45">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">assembly</kbd>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">From the search results, select <span class="ph uicontrol">Assembly Set Variable Action</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Specify the set variable actions.</span> 
+<table border="1" frame="hsides" rules="rows" cellpadding="4" cellspacing="0" summary="Each row in this table describes one option for a choice." class="simpletable choicetable choicetableborder">
+<thead><tr><th valign="bottom" align="left" id="d1577e73-option" class="ncol thleft thbot">Action</th>
+<th valign="bottom" align="left" id="d1577e73-desc" class="ncol thleft thbot">What to do</th></tr></thead>
+<tbody><tr class="strow chrow"><td valign="top" headers="d1577e73-option" id="d1577e80" class="stentry choption ncol" width="24.390243902439025%"><strong><span class="ph uicontrol">Add</span><br /><span class="ph uicontrol">Set</span></strong></td>
+<td valign="top" headers="d1577e73-desc d1577e80" class="stentry chdesc ncol" width="75.60975609756098%"><ol class="ol" type="a"><li class="li">Specify the variable name.</li>
+<li class="li">(Optional) Specify the data type of the variable.</li>
+<li class="li">Assign proper value to the variable.</li>
+</ol>
+</td>
+</tr>
+<tr class="strow chrow"><td valign="top" headers="d1577e73-option" id="d1577e95" class="stentry choption ncol" width="24.390243902439025%"><strong><span class="ph uicontrol">Clear</span></strong></td>
+<td valign="top" headers="d1577e73-desc d1577e95" class="stentry chdesc ncol" width="75.60975609756098%">Specify the variable name.</td>
+</tr>
+</tbody></table>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save the changes to the running configuration.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Save Configuration</span> or <span class="ph uicontrol">Save changes</span> to save
+the changes to the persisted configuration.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_configuringassembly.html" title="An assembly defines the data processing capabilities of an API definition. When an API is matched for an API request, the API execute action in the API processing rule runs the assembly of the API to respond to the request. The information instructs how to create an assembly.">Creating an assembly</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="apigw_contextvariables.html" title="An API context is a set of variables. The input and output of the processing and assembly actions are stored in these variables. You can access and manipulate these variables by referencing them through assembly actions.">Variables in the API context</a></div>
+</div>
+</div></div></body>
+</html>

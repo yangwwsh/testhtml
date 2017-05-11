@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating an API plan" />
+<meta name="abstract" content="An API is not exposed for access unless you add the API into a plan. The information instructs how to configure an API plan to package a list of APIs to expose for access." />
+<meta name="Description" content="An API is not exposed for access unless you add the API into a plan. The information instructs how to configure an API plan to package a list of APIs to expose for access." />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapi.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapigw.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringoperationratelimit.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_configuringapiplan" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_configuringapigw.html" />
+<title>Creating an API plan</title>
+</head>
+<body id="apigw_configuringapiplan"><div role="main">
+<h1 class="title topictitle1">Creating an API plan<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">An API is not exposed for access unless you add the API into a plan. The information
+instructs how to configure an API plan to package a list of APIs to expose for access.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd8689e19">About this task</h2></div><div class="p">To configure an API plan, provide the following settings:<ul class="ul"><li class="li">The rate limit schemes to enforce on all APIs that are packaged in the plan.</li>
+<li class="li">Optionally, the burst limit schemes to enforce on all APIs that are packaged in the plan. The
+burst limit scheme helps prevent usage spikes that might damage infrastructure. The burst limit
+takes higher priority than the rate limit, when a message arrives within an interval, the message is
+first checked against the burst limit scheme.<ul class="ul"><li class="li">When the burst limit is exceeded, the message is rejected.</li>
+<li class="li">When the burst limit is not exceeded, the <span class="ph"><span class="ph">API Gateway</span> proceeds to check the message against the rate
+limit scheme.</span></li>
+</ul>
+</li>
+<li class="li">The APIs to package into the plan.</li>
+<li class="li">The operations to exclude. When an operation is excluded from the plan, API requests cannot
+access the API operation through the plan.</li>
+<li class="li">The rate limit schemes that are specific to certain operations. When an operation-specific rate
+limit scheme is defined, the operation-specific rate limit scheme is enforced instead of the rate
+scheme that is defined for the plan.</li>
+</ul>
+</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd8689e42">Procedure</h2></div><ol class="ol steps"><li class="li step stepexpand"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">API</kbd>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">From the search results, click <span class="ph uicontrol">API Plan</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Specify the rate limit schemes to enforce on the plan. To add a rate limit scheme, do the
+following steps:</span> <ol type="a" class="ol substeps" id="apigw_configuringapiplan__rate"><li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Add</span>.</span></li>
+<li class="li substep"><span class="ph cmd">Specify the maximum rate to allow.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Specify the time interval for the rate limit.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Specify the time unit for the rate limit.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Specify whether to enable hard limit.</span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Done</span>.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand">Optional: <span class="ph cmd">Specify the burst limit schemes to enforce on the plan. To add a burst limit scheme, do the
+following steps:</span> <ol type="a" class="ol substeps" id="apigw_configuringapiplan__burst"><li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Add</span>.</span></li>
+<li class="li substep"><span class="ph cmd">Specify the maximum burst rate to allow.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Specify the time interval for the burst limit.</span></li>
+<li class="li substep">Optional: <span class="ph cmd">Specify the time unit for the burst limit.</span></li>
+<li class="li substep"><span class="ph cmd">Click <span class="ph uicontrol">Done</span>.</span></li>
+</ol>
+</li>
+<li class="li step stepexpand"><span class="ph cmd">Specify a list of APIs to package into the plan.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Specify the operations to exclude from the plan.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Specify the operation rate limit configuration to override the rate limit scheme for certain
+operations.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save the changes to the running configuration.</span></li>
+<li class="li step stepexpand"><span class="ph cmd">Click <span class="ph uicontrol">Save Configuration</span> or <span class="ph uicontrol">Save changes</span> to save
+the changes to the persisted configuration.</span></li>
+</ol>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringoperationratelimit.html">Adding an API operation rate limit</a></span><br />
+How to add an operation rate limit to override the rate limit scheme for an API
+operation.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_configuringapigw.html" title="How to configure an API Gateway. This information is the high-level procedure to create an API Gateway.">Creating an API Gateway</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="apigw_configuringapi.html" title="The DataPower Gateway stores each API as an API definition configuration. To develop an API, create an API definition.">Developing APIs</a></div>
+</div>
+</div></div></body>
+</html>

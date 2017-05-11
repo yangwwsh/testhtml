@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Adding a convert XML to JSON action" />
+<meta name="abstract" content="An XML to JSON action converts the payload of an API context from the extensible markup language (XML) format to JavaScript Object Notation (JSON) object." />
+<meta name="Description" content="An XML to JSON action converts the payload of an API context from the extensible markup language (XML) format to JavaScript Object Notation (JSON) object." />
+<meta name="DC.Relation" scheme="URI" content="http://badgerfish.ning.com" />
+<meta name="DC.Relation" scheme="URI" content="apigw_contextvariables.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringassembly.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_addingxmltojsonaction" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_configuringassembly.html" />
+<title>Adding a convert XML to JSON action</title>
+</head>
+<body id="apigw_addingxmltojsonaction"><div role="main">
+<h1 class="title topictitle1">Adding a convert XML to JSON action<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">An XML to JSON action converts the payload of an API context from the extensible markup
+language (XML) format to JavaScript Object Notation (JSON) object.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd2885e19">About this task</h2></div><p class="p">The XML to JSON conversion is based on BadgerFish. The XML content is preserved, including the
+attributes and namespaces.
+.</p>
+
+<p class="p">When this action is triggered, it reads input from the <samp class="ph systemoutput">message.body</samp>
+context variable if this context exists. Otherwise, it reads input from the
+<samp class="ph systemoutput">request.body</samp> context variable. No additional configuration is required.
+The conversion output is stored in the <samp class="ph systemoutput">message.body</samp> context
+variable.</p>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd2885e34">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">assembly</kbd>.</span></li>
+<li class="li step"><span class="ph cmd">From the search results, select <span class="ph uicontrol">Assembly XML to JSON Action</span>.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+</ol>
+<div class="example"><h2 class="title sectiontitle">Examples</h2>
+<div class="p"><ul class="ul"><li class="li">The <samp class="ph codeph">&lt;a&gt;hello&lt;/a&gt;</samp> XML-formatted document is converted to the following
+JSON-formatted object.<pre class="pre codeblock"><code>{ "a": { "$" : "hello" } }</code></pre>
+</li>
+<li class="li">The <samp class="ph codeph">&lt;a type="world"&gt;hello&lt;/a&gt;</samp> XML-formatted document with an attribute is
+converted to the following JSON-formatted
+object.<pre class="pre codeblock"><code>{ "a": { "$" : "hello", "@type" : "world" } }</code></pre>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_configuringassembly.html" title="An assembly defines the data processing capabilities of an API definition. When an API is matched for an API request, the API execute action in the API processing rule runs the assembly of the API to respond to the request. The information instructs how to create an assembly.">Creating an assembly</a></div>
+</div>
+<div class="relinfo relref"><strong>Related reference</strong>:<br />
+<div><a class="link" href="apigw_contextvariables.html" title="An API context is a set of variables. The input and output of the processing and assembly actions are stored in these variables. You can access and manipulate these variables by referencing them through assembly actions.">Variables in the API context</a></div>
+</div>
+<div class="relinfo"><strong>Related information</strong>:<br />
+<div><img src="./sout.gif" alt="" /><a class="link" href="http://badgerfish.ning.com" target="_blank" title="(Opens in a new tab or window)">BadgerFish</a></div>
+</div>
+</div></div></body>
+</html>

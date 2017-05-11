@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="concept_qf2_my4_3z" xml:lang="en-us">
+<title>API properties<ph rev="rev760"/></title>
+<shortdesc>An API property is a type of context variable whose value is dependent on the API
+collection that the API is provisioned in. Collection-specific API properties allow you to use the
+same API definition in different API collections when a property in a collection requires a unique
+or different value.</shortdesc>
+<conbody>
+<p>You can access and manipulate the API properties by referencing an API property in the assembly
+actions. For example, you might configure an assembly if action that executes its case when the API
+request is routed to a particular API collection, which determines the value of the API property for
+the case.</p>
+<p>After an API property is created, the assembly actions can then reference the API property
+through the property name.</p>
+</conbody>
+</concept>

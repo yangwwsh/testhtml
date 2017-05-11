@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN"
+ "map.dtd">
+<map title="GatewayScript APIs for API management" xml:lang="en-us">
+<topicref format="dita" href="apigateway_gatewayscript_general.dita"
+navtitle="GatewayScript APIs for API management">
+<topicref format="dita" href="apim_js.dita" navtitle="apim module"/>
+<topicref format="dita" href="context_apigatewayscriptaction_js.dita" navtitle="context object"/>
+<!--in future, when doced in GWS IU, this "context object" title should be like "context object  for the assembly GatewayScript action", which is to distinguish from the existing "context object" topic.-->
+</topicref>
+</map>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="reference" />
+<meta name="DC.Title" content="Variables in the API context" />
+<meta name="abstract" content="An API context is a set of variables. The input and output of the processing and assembly actions are stored in these variables. You can access and manipulate these variables by referencing them through assembly actions." />
+<meta name="Description" content="An API context is a set of variables. The input and output of the processing and assembly actions are stored in these variables. You can access and manipulate these variables by referencing them through assembly actions." />
+<meta name="DC.Relation" scheme="URI" content="apigw_overview.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_contextvariables" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_overview.html" />
+<title>Variables in the API context</title>
+</head>
+<body id="apigw_contextvariables"><div role="main">
+<h1 class="title topictitle1"> Variables in the API context<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body refbody"><p class="shortdesc">An API context is a set of variables. The input and output of the processing and assembly
+actions are stored in these variables. You can access and manipulate these variables by referencing
+them through assembly actions.</p>
+<div class="section"><p class="p">A context variable is relevant during an API call, for example, the input of the call, the path
+of the call, or the message during the call.</p>
+
+<div class="p">The following table shows a list of available API context variables on the <span class="ph">API Gateway</span>.<div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="apigw_contextvariables__table_hvj_h3q_zy" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. Supported API context variables</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry thleft" valign="top" width="33.003300330033%" id="d11022e36">Variable name</th>
+<th class="entry thleft" valign="top" width="66.996699669967%" id="d11022e38">Description</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.name</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The API title.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><strong class="ph b"><em class="ph i"><u class="ph u"><samp class="ph codeph">api.document</samp></u></em></strong></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><strong class="ph b"><em class="ph i"><u class="ph u">The OpenAPI (Swagger 2.0) document.</u></em></strong></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.root</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The API base path.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.version</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The version string of the API.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.endpoint.address</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The address of the API Gateway endpoint.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.endpoint.hostname</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The host name of the API Gateway endpoint, as requested by the application.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.operation.id</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The ID of the operation.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.operation.path</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The path of the operation as defined in OpenAPI (Swagger 2.0).</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.org.id</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The organization ID of the API provider.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.org.name</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The organization short name of the API provider.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.type</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The API type: REST or SOAP.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">api.properties.<var class="keyword varname">propertyname</var></samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><p class="lines">Retrieves the values of properties that are set for this API. The property values are collection-specific.</p>
+
+<p class="lines">For more information about API properties, see <a class="xref" href="apigw_properties.html" title="An API property is a type of context variable whose value is dependent on the API collection that the API is provisioned in. Collection-specific API properties allow you to use the same API definition in different API collections when a property in a collection requires a unique or different value.">API properties</a>.</p>
+</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">plan.name</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The name of the plan.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">plan.id</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The unique identifier of the plan.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">plan.version</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The version number of the plan.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">plan.rate-limits</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The rate limit, that is, the number of API calls per time interval, of the plan.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">plan.rate-limits[index].value</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The value of the rate limit. The syntax is
+<samp class="ph codeph"><var class="keyword varname">Rate</var>/<var class="keyword varname">IntervalUnit</var></samp>.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">plan.rate-limits[index].hard-limit</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The setting of the hard limit.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">env.path</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The path segment that represents this collection.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.authorization</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The parsed HTTP <samp class="ph codeph">authorization</samp> header.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.body</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The payload from the incoming request.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.content-type</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Normalized content-type value.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.date</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">A date object that represents approximately when the request was received by the API
+Gateway.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.headers.<var class="keyword varname">headername</var></samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The value of the named HTTP request header.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.parameters</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">You can obtain your incoming parameters from path and query parameters. </td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.path</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The path section of the <samp class="ph codeph">request.uri</samp> that starts with the base path of the
+API, including the '/' character that begins the base path.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.querystring</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The request query string without the leading question mark.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.search</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The request query string with the leading question mark.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.uri</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The full HTTP request URI from the application.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">request.verb</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The HTTP verb of this request.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">client.app.name</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The name of the application that is identified as having issued the request.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">client.app.id</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The client ID or application key that is received on the request.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">client.app.secret</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The client secret that is received in the request.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><strong class="ph b"><em class="ph i"><u class="ph u"><samp class="ph codeph">client.org.id</samp></u></em></strong></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><strong class="ph b"><em class="ph i"><u class="ph u">The unique identification key of the organization that owns this
+application.</u></em></strong></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><strong class="ph b"><em class="ph i"><u class="ph u"><samp class="ph codeph">client.org.name</samp></u></em></strong></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><strong class="ph b"><em class="ph i"><u class="ph u">The name of the organization that owns this application.</u></em></strong></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">message.body</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The payload of the request or response message.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">message.headers.<var class="keyword varname">name</var></samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The value of the named HTTP request header.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">message.status.code</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The HTTP status code of the response.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">message.status.reason</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">The HTTP reason phrase of the response.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><em class="ph i"><u class="ph u"><strong class="ph b"><samp class="ph codeph">oauth.access-token</samp></strong></u></em></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><em class="ph i"><u class="ph u"><strong class="ph b">If the request is authenticated with OAuth, this variable contains the access token
+string.</strong></u></em></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><em class="ph i"><u class="ph u"><strong class="ph b"><samp class="ph codeph">oauth.resource-owner</samp></strong></u></em></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><em class="ph i"><u class="ph u"><strong class="ph b">If the request is authenticated with OAuth, this variable contains the name of the
+resource owner.</strong></u></em></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><em class="ph i"><u class="ph u"><strong class="ph b"><samp class="ph codeph">oauth.scope</samp></strong></u></em></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><em class="ph i"><u class="ph u"><strong class="ph b">If the request is authenticated with OAuth, this variable contains the scope of this
+access token.</strong></u></em></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><em class="ph i"><u class="ph u"><strong class="ph b"><samp class="ph codeph">oauth.miscinfo</samp></strong></u></em></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><em class="ph i"><u class="ph u"><strong class="ph b">This variable contains information explicitly included in the following headers:</strong></u></em></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><em class="ph i"><u class="ph u"><strong class="ph b"><samp class="ph codeph">oauth.not-before</samp></strong></u></em></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><em class="ph i"><u class="ph u"><strong class="ph b">If the request is authenticated with OAuth, this variable contains the date when the
+token was issued.</strong></u></em></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><em class="ph i"><u class="ph u"><strong class="ph b"><samp class="ph codeph">oauth.not-after</samp></strong></u></em></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 "><em class="ph i"><u class="ph u"><strong class="ph b">If the request is authenticated with OAuth, this variable contains the date when the
+token expires.</strong></u></em></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">system.datetime</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Returns the current time in the system time zone in a JSON object.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">system.time.hour</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Returns a number 0 - 23 inclusive, representing the hour of the current time in the system
+time zone.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">system.time.minute</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Returns a number 0 - 59 inclusive representing the minute of the current time in the system
+time zone.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">system.time.seconds</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Returns a number 0 - 59 inclusive representing the seconds of the current time in the system
+time zone.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">system.date</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Returns a JSON object that represents the current date in the system time zone.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">system.date.day-of-week</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Returns a number 1 - 7 (Monday to Sunday) inclusive representing the day of the week in the
+system time zone.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">system.date.day-of-month</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Returns a number 1 - 31 representing the day of the month in the system time zone.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">system.date.year</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Returns a four-digit number that represents the year in the system time zone.</td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="33.003300330033%" headers="d11022e36 "><samp class="ph codeph">system.timezone</samp></td>
+<td class="entry" valign="top" width="66.996699669967%" headers="d11022e38 ">Returns a system time zone ISO 8601 identifier, which might include a sign, a two-digit hour,
+and minutes. For example, <samp class="ph systemoutput">-04:00</samp>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_overview.html" title="An API Gateway receives API requests and routes the request to a matching API that is provisioned natively in the API Gateway. The API Gateway then runs the assembly of the API to respond to the request.">API Gateway</a></div>
+</div>
+</div></div></body>
+</html>

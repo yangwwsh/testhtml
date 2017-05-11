@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_configuringassembly" xml:lang="en-us">
+<title>Creating an assembly<ph rev="rev760"/></title>
+<shortdesc>An assembly defines the data processing capabilities of an API definition. When an API is
+matched for an API request, the API execute action in the API processing rule runs the assembly of
+the API to respond to the request. The information instructs how to create an assembly.</shortdesc>
+<taskbody>
+<context>
+<p>To configure an assembly, you must define the assembly rule and optionally how to handle errors
+that occur during the assembly execution.</p>
+<p>An assembly rule can comprise one or more assembly actions to apply to the API call. The assembly
+actions are run in order and act on different context variables of the API call. You can access and
+manipulate the variables in the API context by referencing the context variable in the assembly
+action configuration.</p>
+<p>You can define catch settings to handle specific errors such as the assembly invoke action fails
+to connect the server or receives a non-200 message, or the assembly switch action fails to evaluate
+the given expression. Unhandled errors are saved for preparing the final response, for more
+information, see the response preparation topic.</p>
+</context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_api">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, select <uicontrol>Assembly</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Specify the assembly rule that consists of  one or more assembly actions to apply to the API
+call.</cmd>
+</step>
+<step importance="optional">
+<cmd>Specify a catch setting that defines how to handle a specific error in the assembly.</cmd>
+<substeps>
+<substep conref="apigw_conref.dita#commonsteps/config_add_substep">
+<cmd/>
+</substep>
+<substep>
+<cmd>Enter the name of the error.</cmd>
+</substep>
+<substep>
+<cmd>Specify an error handler.</cmd>
+</substep>
+<substep conref="apigw_conref.dita#commonsteps/config_save_substep">
+<cmd/>
+</substep>
+<substep importance="optional">
+<cmd>Repeat the previous steps to add another error case.</cmd>
+</substep>
+</substeps>
+</step>
+<step importance="optional">
+<cmd>Specify a default error rule to run when an uncaught error occurs.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+</taskbody>
+<related-links>
+<link href="apigw_apirequestrouting_apiexecute.dita"/>
+<link href="apigw_apirequestrouting_apiresult.dita"/>
+</related-links>
+</task>

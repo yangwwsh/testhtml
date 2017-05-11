@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_referencingapicontextvariable" xml:lang="en-us">
+<title>Accessing and manipulating an API context variable<ph rev="rev760"/></title>
+<shortdesc>You can access and manipulate a referenced API context variable through assembly actions.
+The information instructs how to reference a variable in the API context through the assembly
+actions.</shortdesc>
+<taskbody>
+<prereq>
+<p>Check the list of supported variables in the API context.</p>
+</prereq>
+<context>
+<p>You can get or set the value for a referenced variable.<ul>
+<li>Get the value for a variable through one of the following methods:<ul>
+<li>Through the assembly <ph conref="apigw_conref.dita#common/gws"/> action, run a <ph
+conref="apigw_conref.dita#common/gws"/> file that uses the
+<codeph>apim.getVariable()</codeph> API.</li>
+<li>Through the assembly <ph conref="apigw_conref.dita#common/gws"/> action, run a <ph
+conref="apigw_conref.dita#common/gws"/> file that uses the <codeph>context</codeph>
+object.</li>
+<li>Through the assembly XSLT action, run a stylesheet that uses the
+<codeph>apim:get-variable()</codeph> extension function.</li>
+<li>In a supported field of certain assembly actions, reference a variable inline.</li>
+</ul></li>
+<li>Set the value for a variable through one of the following methods:<ul>
+<li>Through the assembly set variable action.</li>
+<li>Through the assembly <ph conref="apigw_conref.dita#common/gws"/> action, run a <ph
+conref="apigw_conref.dita#common/gws"/> file that uses the
+<codeph>apim.setVariable()</codeph> API.</li>
+<li>Through the assembly <ph conref="apigw_conref.dita#common/gws"/> action, run a <ph
+conref="apigw_conref.dita#common/gws"/> file that uses the <codeph>context</codeph>
+object.</li>
+<li>Through the assembly XSLT action, run a stylesheet that uses the
+<codeph>apim:set-variable</codeph> extension element.</li>
+</ul></li>
+</ul></p>
+</context>
+<steps-unordered>
+<step>
+<cmd>Through the assembly <ph conref="apigw_conref.dita#common/gws"/> action</cmd>
+<substeps>
+<substep>
+<cmd>Open the <ph conref="apigw_conref.dita#common/gws"/> file for edit.</cmd>
+</substep>
+<substep>
+<cmd>Use the APIs in the <codeph>apim</codeph> module to get or set a variable.</cmd>
+</substep>
+<substep>
+<cmd>Associate the <ph conref="apigw_conref.dita#common/gws"/> file to an assembly <ph
+conref="apigw_conref.dita#common/gws"/> action.</cmd>
+</substep>
+</substeps>
+<info>For the syntax, see the information about the <ph
+conref="apigw_conref.dita#common/gws"/> objects and modules for the <ph
+conref="apigw_conref.dita#common/apigw"/>.</info>
+</step>
+<step>
+<cmd>Through the assembly XSLT action</cmd>
+<substeps>
+<substep>
+<cmd>Open the stylesheet for edit.</cmd>
+</substep>
+<substep>
+<cmd>Use the relevant <ph conref="apigw_conref.dita#common/apigw"/> extension function and element
+to get or set a variable.</cmd>
+</substep>
+<substep>
+<cmd>Associate the stylesheet to an assembly XSLT action.</cmd>
+</substep>
+</substeps>
+<info>For the syntax, see the reference information about the <codeph>apim</codeph> extension
+functions and elements.</info>
+</step>
+<step>
+<cmd>Inline reference</cmd>
+<substeps>
+<substep>
+<cmd>In the assembly action configuration, locate the property that you want to use a context
+variable as the value.</cmd>
+</substep>
+<substep>
+<cmd>Enter <codeph>$(variable)</codeph>.</cmd>
+<info>
+<p>When the variable to reference is an API property, use one of the following methods:<ul>
+<li>
+<codeblock>$(api.properties.<varname>property_name</varname>)</codeblock>
+</li>
+<li>
+<codeblock>$(<varname>property_name</varname>)</codeblock>
+</li>
+</ul>Where, <varname>property_name</varname> is the name of the property to reference. </p>
+<p><codeph>$(api.properties.<varname>property_name</varname>)</codeph> is the absolute expression to
+reference a property. The short form <codeph>$(<varname>property_name</varname>)</codeph> applies
+only when the assembly action does not have a property with the same name. You can use inline
+reference of a custom API property for the following assembly action settings:<ul>
+<li>The URL property of the assembly invoke action</li>
+<li>The variable name and variable assignment properties of the assembly set variable action</li>
+<li>The case property of the assembly switch action</li>
+<li>The error identifier and error text properties of the assembly throw action</li>
+</ul></p>
+</info>
+</substep>
+</substeps>
+</step>
+</steps-unordered>
+</taskbody>
+<related-links>
+<link href="apigw_addingsetvariableaction.dita"/>
+<link href="apigw_addinggatewayscriptaction.dita"/>
+<link href="apigw_addingxsltaction.dita"/>
+<link href="apigw_extensions.dita"/>
+<link href="apigateway_gatewayscript_general.dita"/>
+</related-links>
+</task>

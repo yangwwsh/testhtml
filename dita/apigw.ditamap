@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map product="SS9H2Y_7.6.0" title="API Gateway" xml:lang="en-us">
+<topicref format="dita" href="apigw_overview.dita" navtitle="API Gateway">
+<topicref format="dita" href="apigw_apirequestrouting.dita" navtitle="Routing of API requests">
+<topicref format="dita" href="apigw_apirequestrouting_collection.dita" navtitle="Collection routing"/>
+<topicref format="dita" href="apigw_apirequestrouting_apiprocessingrule.dita" navtitle="Request processing">
+<topicref format="dita" href="apigw_apirequestrouting_apirouting.dita" navtitle="API routing"/>
+<topicref href="apigw_apirequestrouting_apiclientidentification.dita" navtitle="Client identification"/>
+<topicref format="dita" href="apigw_apirequestrouting_apiratelimit.dita" navtitle="Rate limiting"/>
+<topicref format="dita" href="apigw_apirequestrouting_apisecurity.dita" navtitle="Security check"/>
+<topicref format="dita" href="apigw_apirequestrouting_apicontext.dita" navtitle="Context population"/>
+<topicref format="dita" href="apigw_apirequestrouting_apiexecute.dita" navtitle="Assembly execution"/>
+<topicref format="dita" href="apigw_apirequestrouting_apiresult.dita" navtitle="Response preparation"/>
+</topicref>
+</topicref>
+<topicref format="dita" href="apigw_configuringapi.dita" navtitle="Developing APIs">
+<topicref format="dita" href="apigw_configuringapipath.dita" navtitle="Creating an API path"/>
+<topicref format="dita" href="apigw_configuringapioperation.dita"
+navtitle="Creating an API operation"/>
+<topicref format="dita" href="apigw_securitydefinitions.dita" navtitle="API Security">
+<topicref href="apigw_configuringsecurityrequirements.dita" format="dita"
+navtitle="Creating a security requirement"/>
+<topicref format="dita" href="apigw_securitydefinitions_apikey.dita"
+navtitle="Creating an API key security definition"/>
+<topicref format="dita" href="apigw_securitydefinitions_basicauth.dita"
+navtitle="Creating a basic authentication security definition"/>
+<topicref format="dita" href="apigw_securitydefinitions_oauth.dita"
+navtitle="Creating an OAuth security definition"/>
+<topicref format="dita" href="apigw_configuringldapregistry.dita"
+navtitle="Creating an API LDAP registry"/>
+</topicref>
+<topicref href="apigw_properties.dita" navtitle="API properties">
+<topicref href="apigw_configuringapiproperty.dita" navtitle="Adding a custom API property"/>
+</topicref>
+<topicref format="dita" href="apigw_configuringassembly.dita" navtitle="Creating an assembly">
+<topicref format="dita" href="apigw_addinggatewayscriptaction.dita"
+navtitle="Adding a GatewayScript action"/>
+<topicref format="dita" href="apigw_addingifaction.dita" navtitle="Adding an If action"/>
+<topicref format="dita" href="apigw_addinginvokeaction.dita"
+navtitle="Adding an invoke action to retrieve documents"/>
+<topicref href="apigw_addingparseaction.dita" navtitle="Adding an assembly parse action"
+format="dita"/>
+<topicref format="dita" href="apigw_addingsetvariableaction.dita"
+navtitle="Adding a set variable action"/>
+<topicref format="dita" href="apigw_addingswitchaction.dita"
+navtitle="Adding a switch action to choose which rule to use"/>
+<topicref format="dita" href="apigw_addingthrowaction.dita"
+navtitle="Adding a throw action for a custom error message"/>
+<topicref format="dita" href="apigw_addingxmltojsonaction.dita"
+navtitle="Adding a convert XML to JSON action"/>
+<topicref format="dita" href="apigw_addingvalidatejwtaction.dita"
+navtitle="Adding a validate JWT action"/>
+<topicref format="dita" href="apigw_addingxsltaction.dita"
+navtitle="Adding an XSLT action to run a stylesheet for the current payload"/>
+<topicref href="apigw_referencingapicontextvariable.dita"
+navtitle="Referencing an API context variable"/>
+</topicref>
+</topicref>
+<topicref format="dita" href="apigw_configuringapigw.dita" navtitle="Creating an API Gateway">
+<topicref format="dita" href="apigw_configuringapicollection.dita" navtitle="Creating an API collection"/>
+<topicref format="dita" href="apigw_configuringapiplan.dita" navtitle="Creating an API plan">
+<topicref format="dita" href="apigw_configuringoperationratelimit.dita" navtitle="Adding an API operation rate limit"/>
+</topicref>
+<topicref format="dita" href="apigw_configuringapisubscription.dita"
+navtitle="Creating an API subscription"/>
+</topicref>
+<topicref href="apigw_ratelimit_view_delete_records.dita"
+navtitle="Viewing and deleting API rate limiting enforcement records"/>
+<topicref href="apigateway_extensions.ditamap" format="ditamap"
+navtitle="API Gateway extension elements and functions"/>
+<topicref href="apigateway_gatewayscript.ditamap" format="ditamap"
+navtitle="GatewayScript programming for API management"/>
+<topicref href="apigw_contextvariables.dita" navtitle="Variables in the API context"/>
+</topicref>
+</map>

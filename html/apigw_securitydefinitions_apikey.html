@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Creating an API key security definition" />
+<meta name="abstract" content="Create an API key security definition to define the credentials that an API client must provide to the DataPower Gateway to access an API." />
+<meta name="Description" content="Create an API key security definition to define the credentials that an API client must provide to the DataPower Gateway to access an API." />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringsecurityrequirements.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_securitydefinitions.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_securitydefinitions_apikey" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_securitydefinitions.html" />
+<title>Creating an API key security definition</title>
+</head>
+<body id="apigw_securitydefinitions_apikey"><div role="main">
+<h1 class="title topictitle1">Creating an API key security definition<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">Create an API key security definition to define the credentials that an API client must
+provide to the <span class="ph">DataPower® Gateway</span> to access an
+API.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd15521e24">About this task</h2></div><p class="p">The client ID type of security definition requires that an client must show the expected client
+ID to access the API.</p>
+
+<p class="p">The client secret type of security definition requires that an client must show the expected
+client secret to access the API.</p>
+
+<p class="p">You can require the API client to provide only the client ID, or both the client ID and client
+secret. When you require the API client to provide both the client ID and client secret, you must
+create two separate API key security definitions, one of type ID and the other of type Secret.</p>
+
+<div class="p">You can require the credentials to be sent in the request header or as query parameters. An API
+call fails if the required credentials are not included in the expected location. <div class="note note"><span class="notetitle">Note:</span> Regardless
+of whether the client credentials are sent in the request header or as query parameters, you must
+specify the same location for the client ID and client secret.</div>
+</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd15521e38">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">API</kbd>.</span></li>
+<li class="li step"><span class="ph cmd">From the search results, select <span class="ph uicontrol">API Security API Key</span>.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+<li class="li step"><span class="ph cmd">Select the location of the client credential.</span></li>
+<li class="li step"><span class="ph cmd">Select the type of the client credential.</span></li>
+<li class="li step"><span class="ph cmd">Enter the name of the API key.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save the changes to the running configuration.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Save Configuration</span> or <span class="ph uicontrol">Save changes</span> to save
+the changes to the persisted configuration.</span></li>
+</ol>
+<div class="section postreq"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd15521e87">What to do next</h2></div>To enforce the security scheme, add the API key security definition into a security
+requirement of an API or operation.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_securitydefinitions.html" title="API Gateway allows you to secure your APIs through API key, basic authentication, and OAuth security schemes.">API security</a></div>
+</div>
+<div class="relinfo reltasks"><strong>Related tasks</strong>:<br />
+<div><a class="link" href="apigw_configuringsecurityrequirements.html" title="An API security requirement defines the required security checks that an API request must pass to call the API or operation.">Creating a security requirement</a></div>
+</div>
+</div></div></body>
+</html>

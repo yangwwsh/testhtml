@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_configuringapisubscription" xml:lang="en-us">
+<title>Creating an API subscription<ph rev="rev760"/></title>
+<shortdesc>A client can access only the APIs in the plans that the client subscribes to. An API
+subscription is a list of plans that a subscriber subscribes to. The information instructs how to
+create an API subscription.</shortdesc>
+<taskbody>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_api">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, click <uicontrol>API Subscription</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step>
+<cmd>Define the basic properties: Name and administrative state.</cmd>
+</step>
+<step>
+<cmd>Specify the API plans to include in the subscription.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+</taskbody>
+<related-links>
+<link href="apigw_configuringapiplan.dita"/>
+</related-links>
+</task>

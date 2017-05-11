@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE apiPackage PUBLIC "-//IBM//DTD DITA API Package Type//EN"
+ "apiPackage.dtd">
+<apiPackage xml:lang="en-us" id="context_apigatewayscriptaction_js">
+<apiName id="apim"><codeph>context</codeph> object<ph rev="rev760"/></apiName>
+<!--1. When this topic is added in APIGW IU, the title should be "context object"  2. When this topic is merged in GWS IU, the title might changed to "context object for the assembly GatewayScript action", which should be distinguished from the existing "context object" topic.-->
+<shortdesc>The <codeph>context</codeph> object can access and manipulate API context
+variables.</shortdesc>
+<!--for integration with APIC?-->
+<apiDetail>
+<apiDesc>
+<p>The assembly <ph conref="apigw_conref.dita#common/gws"/> action of the <ph
+conref="apigw_conref.dita#common/apigw"/> service.</p>
+<p>This module supports the following
+APIs:<!--1. alphabetical, check TOC;    2. Finally, copy all "syntax" to gs_toc_js.dita file--></p>
+</apiDesc>
+</apiDetail>
+<related-links>
+<link href="apigw_addinggatewayscriptaction.dita"/>
+</related-links>
+</apiPackage>
+<!--finally, add reference to API >  context variables-->

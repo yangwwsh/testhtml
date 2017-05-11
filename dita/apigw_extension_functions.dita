@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="apigateway_extensions" xml:lang="en-us">
+<title>Extension functions<ph rev="rev760"/></title>
+<shortdesc>You can use the <ph conref="apigw_conref.dita#common/apigw"/> extension
+functions to manipulate the API context.</shortdesc>
+<conbody>
+<p><ph>The documentation for each function contains the following information.</ph><ul>
+<li>Function name</li>
+<li>Declarations for required namespace and extension prefix</li>
+<li>Syntax</li>
+<li>Attributes with data type</li>
+<li>Guidelines</li>
+<li>Return values or results, if any</li>
+<li>Examples</li>
+</ul></p>
+</conbody>
+</concept>

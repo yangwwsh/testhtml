@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="get-original-payload_apigatewayfunction" xml:lang="en-us">
+<title><codeph>apim:get-original-payload()</codeph><ph rev="rev760"/></title>
+<shortdesc>Gets the original API payload for the assembly XSLT action.</shortdesc>
+<refbody>
+<section><title>Namespace
+declaration</title><codeph>xmlns:apim="http://www.ibm.com/apimanagement"</codeph></section>
+<refsyn>
+<title>Syntax</title>
+<p><cmdname>apim:get-original-payload</cmdname>()</p>
+</refsyn>
+<section>
+<title>Guidelines</title>
+<p>The <codeph>apim:get-original-payload</codeph> extension function gets the original API payload
+for the assembly XSLT action. The original payload must be XML and parsed by a parse action first.
+Otherwise, this function returns empty.</p>
+</section>
+<section>
+<title>Results</title>
+<p>An XML document that contains the original payload. Returns empty when the original payload is
+not XML or not parsed by a parse action.</p>
+</section>
+<example>
+<title>Example</title>
+<p>Transform the original payload to update the current payload.</p>
+<codeblock>&lt;xsl:template match="/">
+    &lt;xsl:variable name="originalPayload" select="apim:get-original-payload()"/>
+    &lt;Summary>
+      &lt;xsl:apply-templates select="$originalPayload//order"/>
+    &lt;/Summary>
+&lt;/xsl:template></codeblock>
+</example>
+</refbody>
+</reference>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="task" />
+<meta name="DC.Title" content="Adding an XSLT action to run a stylesheet for the current payload" />
+<meta name="abstract" content="You can use an assembly XSLT action to run a stylesheet for the current payload from the API context." />
+<meta name="Description" content="You can use an assembly XSLT action to run a stylesheet for the current payload from the API context." />
+<meta name="DC.Relation" scheme="URI" content="apigw_extensions.html" />
+<meta name="DC.Relation" scheme="URI" content="functions.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringassembly.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_addingxsltaction" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_configuringassembly.html" />
+<title>Adding an XSLT action to run a stylesheet for the current payload</title>
+</head>
+<body id="apigw_addingxsltaction"><div role="main">
+<h1 class="title topictitle1">Adding an XSLT action to run a stylesheet for the current payload<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body taskbody"><p class="shortdesc">You can use an assembly XSLT action to run a stylesheet for the current payload from the
+API context.</p>
+<div class="section context"><div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd3127e19">About this task</h2></div><div class="p">With the assembly XSLT action, you can perform the following actions within the assembly rule.<ul class="ul"><li class="li">Read and update the current payload. To read the current payload, you must refer to the <span class="q">"/"</span>
+document in your stylesheet. For example,
+<pre class="pre codeblock"><code>&lt;xsl:template match="/"&gt;
+&lt;/xsl:template&gt;</code></pre>
+The current payload must be XML
+and parsed by a parse action in advance. Otherwise, the <span class="q">"/"</span> document is initialized as empty.
+The generated output is used to update the current payload.</li>
+<li class="li">Get the original payload with the <samp class="ph codeph">apim:get-original-payload()</samp> extension
+function.</li>
+<li class="li">Get the API context variable with the <samp class="ph codeph">apim:get-variable()</samp> extension
+function.</li>
+<li class="li">Create or update the API context variable with the <samp class="ph codeph">apim:set-variable</samp> extension
+element.</li>
+<li class="li">Get the API property with the <samp class="ph codeph">apim:get-api-property()</samp> extension function.</li>
+<li class="li">Designate an error for and abort the execution of the current assembly rule with the
+<samp class="ph codeph">apim:reject</samp> extension element.</li>
+<li class="li">Use other supported DP extension elements and functions to apply to the payload.</li>
+</ul>
+See the reference information about the <samp class="ph codeph">apim</samp> extension elements and functions
+for the usage.</div>
+</div>
+<div class="tasklabel"><h2 class="sectiontitle tasklabel" id="taskd3127e65">Procedure</h2></div><ol class="ol steps"><li class="li step"><span class="ph cmd">In the search field, enter <kbd class="ph userinput">assembly</kbd>.</span></li>
+<li class="li step"><span class="ph cmd">From the search results, select <span class="ph uicontrol">Assembly XSLT Action</span>.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Add</span> or <span class="ph uicontrol">New</span>.</span></li>
+<li class="li step"><span class="ph cmd">Define the basic properties: Name, administrative state, and descriptive summary.</span></li>
+<li class="li step"><span class="ph cmd">Select whether to use the current payload as the XSLT input.</span> By default, the property is not enabled.</li>
+<li class="li step"><span class="ph cmd">Select the stylesheet to run.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Apply</span> to save the changes to the running configuration.</span></li>
+<li class="li step"><span class="ph cmd">Click <span class="ph uicontrol">Save Configuration</span> or <span class="ph uicontrol">Save changes</span> to save
+the changes to the persisted configuration.</span></li>
+</ol>
+<div class="example"><h2 class="title sectiontitle">Examples</h2>
+<ul class="ul"><li class="li">Read the <samp class="ph codeph">/order/@date</samp> from the current payload and save it into the
+<samp class="ph codeph">my.orderData</samp> API context
+variable.<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:apim="http://www.ibm.com/apimanagement"
+    extension-element-prefixes="apim" exclude-result-prefixes="apim"&gt;
+
+  &lt;xsl:template match="/"&gt;
+    &lt;xsl:message&gt;Found the order: &lt;xsl:copy-of select="./order"/&gt;
+    &lt;apim:set-variable name="'my.orderDate'" value="./order/@date"/&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</code></pre>
+</li>
+<li class="li">Update the current payload with the generated XML
+document.<pre class="pre codeblock"><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+  &lt;xsl:template match="/"&gt;
+    &lt;order&gt;
+      &lt;item qty="2"&gt;Ink Cartridges&lt;/item&gt;
+      &lt;item qty="300"&gt;Copy Paper&lt;/item&gt;
+    &lt;/order&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</code></pre>
+</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_configuringassembly.html" title="An assembly defines the data processing capabilities of an API definition. When an API is matched for an API request, the API execute action in the API processing rule runs the assembly of the API to respond to the request. The information instructs how to create an assembly.">Creating an assembly</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="apigw_extensions.html" title="The apim extension elements and functions documentation provides information about how to use the API Gateway extension elements and functions to manipulate the API context.">apim extension elements and functions</a></div>
+</div>
+<div class="relinfo"><strong>Related information</strong>:<br />
+<div><a class="link" href="functions.html">Extension elements and functions</a></div>
+</div>
+</div></div></body>
+</html>

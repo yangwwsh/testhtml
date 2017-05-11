@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="Security check" />
+<meta name="abstract" content="The API Gateway runs the API security action to perform the security checks that are required by the matched API on the request." />
+<meta name="Description" content="The API Gateway runs the API security action to perform the security checks that are required by the matched API on the request." />
+<meta name="DC.Relation" scheme="URI" content="apigw_securitydefinitions.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_apirequestrouting_apiprocessingrule.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_apirequestrouting_apisecurity" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_apirequestrouting_apiprocessingrule.html" />
+<title>Security check</title>
+</head>
+<body id="apigw_apirequestrouting_apisecurity"><div role="main">
+<h1 class="title topictitle1">Security check<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body conbody"><p class="shortdesc">The <span class="ph">API Gateway</span> runs the API security
+action to perform the security checks that are required by the matched API on the request. </p>
+<div class="p">The <span class="ph">API Gateway</span> performs API key security check in
+the client identification phase. In the security check phase, the <span class="ph">API Gateway</span> checks the request against the basic
+authentication and OAuth security requirements in the following procedure:<ol class="ol"><li class="li">The action determines the security requirements to enforce:<ul class="ul"><li class="li">If the target operation has its security requirements defined in the operation level, the action
+enforces the operation-level security requirements.</li>
+<li class="li">If the target operation does not have operation-level security requirements, the action enforces
+the API-level security requirements.</li>
+<li class="li">If the target operation does not have any security requirement in the API or operation level,
+the action allows the access to the API without security check. The processing proceeds to the
+context population phase.</li>
+</ul>
+</li>
+<li class="li">The action examines the credentials that are carried in the request against the security
+requirements to enforce: <ul class="ul"><li class="li">If the credentials fulfill at least one of the security requirements, the action allows the
+access to the API.</li>
+<li class="li">If the credentials do not fulfill any of the security requirements, the request is rejected.</li>
+</ul>
+</li>
+</ol>
+ For information about how the supported types of security definition work to security an API,
+see the API security topic.</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_apirequestrouting_apiprocessingrule.html" title="After an API collection is matched, the API Gateway triggers the API processing rule of the collection to match the target API, enforce the constraints to execute the target API operation, prepare the context for the running of the operation, and execute the assembly rule of the API to respond to the request.">Request processing</a></div>
+</div>
+<div class="relinfo relconcepts"><strong>Related concepts</strong>:<br />
+<div><a class="link" href="apigw_securitydefinitions.html" title="API Gateway allows you to secure your APIs through API key, basic authentication, and OAuth security schemes.">API security</a></div>
+</div>
+</div></div></body>
+</html>

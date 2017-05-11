@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="apigw_configuringapicollection" xml:lang="en-us">
+<title>Creating an API collection<ph rev="rev760"/></title>
+<shortdesc>An API collection packages the plans and subscribers to make APIs available to a specific
+group of API clients. The information instructs how to create an API collection.</shortdesc>
+<taskbody>
+<context>
+<p>To create an API collection, provide the following settings:<ul>
+<li>The routing prefixes that the <ph conref="apigw_conref.dita#common/apigw"/> uses for
+collection routing. See the collection routing topic about how routing prefixes are used to match
+the target API collection for a request.<note type="tip">Although you can specify different routing
+prefix types for the API collections in a single <ph
+conref="apigw_conref.dita#common/apigw"/>, to gain the maximum performance, use only one
+type within an <ph conref="apigw_conref.dita#common/apigw"/>.</note></li>
+<li>The API plans to include in the API collection. </li>
+<li>The API subscribers that are allowed to access the APIs in the API collection. The <ph
+conref="apigw_conref.dita#common/apigw"/> identifies a client as an API subscriber
+through the API key security check. Therefore, to define an API subscriber, provide the following information:<ul>
+<li>The client ID that identifies the subscriber.</li>
+<li>The hashed client secret that secures the client ID.</li>
+<li>Optionally, the name of the subscriber.</li>
+<li>Optionally, the subscription, which comprises a list of plans that the subscriber subscribes
+to.</li>
+</ul></li>
+<li>Optionally, the default rate limit to apply for the requests that do not carry user credentials
+for API key security check.</li>
+</ul></p>
+<note>You should always use the default API processing rule and API error rule unless you clearly
+understand how the rules work and need customized rules for specific business requirements.</note>
+</context>
+<steps>
+<step conref="apigw_conref.dita#commonsteps/search_api">
+<cmd/>
+</step>
+<step>
+<cmd>From the search results, click <uicontrol>API Collection</uicontrol>.</cmd>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_add">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_basicproperties">
+<cmd/>
+</step>
+<step>
+<cmd>Specify the routing prefixes. To add a routing prefix, do the following steps:</cmd>
+<substeps>
+<substep>
+<cmd>Specify the routing prefix type.</cmd>
+</substep>
+<substep>
+<cmd>Enter the routing prefix.</cmd>
+</substep>
+<substep>
+<cmd>Click <uicontrol>Done</uicontrol>.</cmd>
+</substep>
+</substeps>
+</step>
+<step importance="optional">
+<cmd>Specify the default rate limit for API requests with no API key.</cmd>
+</step>
+<step>
+<cmd>Specify the API plans to package in the API collection.</cmd>
+</step>
+<step>
+<cmd>Specify the subscribers to allow access to the API collection. To add a subscriber, do the
+following steps:</cmd>
+<substeps>
+<substep>
+<cmd>Click <uicontrol>Add</uicontrol>.</cmd>
+</substep>
+<substep>
+<cmd>Enter the client ID.</cmd>
+</substep>
+<substep>
+<cmd>Enter the client secret.</cmd>
+</substep>
+<substep importance="optional">
+<cmd>Enter the subscriber name.</cmd>
+</substep>
+<substep importance="optional">
+<cmd>Specify the subscription.</cmd>
+</substep>
+<substep>
+<cmd>Click <uicontrol>Done</uicontrol>.</cmd>
+</substep>
+</substeps>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_apply">
+<cmd/>
+</step>
+<step conref="apigw_conref.dita#commonsteps/config_saveconfig">
+<cmd/>
+</step>
+</steps>
+</taskbody>
+<related-links>
+<link href="apigw_apirequestrouting_collection.dita"/>
+<link href="apigw_configuringapiplan.dita"/>
+<link href="apigw_configuringapisubscription.dita"/>
+</related-links>
+</task>

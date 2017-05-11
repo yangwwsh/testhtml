@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="API routing" />
+<meta name="abstract" content="The API Gateway runs the API routing action to match the API to invoke." />
+<meta name="Description" content="The API Gateway runs the API routing action to match the API to invoke." />
+<meta name="DC.Relation" scheme="URI" content="apigw_apirequestrouting_apiprocessingrule.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_apirequestrouting_apirouting" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_apirequestrouting_apiprocessingrule.html" />
+<title>API routing</title>
+</head>
+<body id="apigw_apirequestrouting_apirouting"><div role="main">
+<h1 class="title topictitle1">API routing<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body conbody"><p class="shortdesc">The <span class="ph">API Gateway</span> runs the API routing action
+to match the API to invoke.</p>
+<div class="p">The API routing action matches the API to invoke in the following process:<ol class="ol"><li class="li">The API routing action extracts the following information from the request: <ul class="ul"><li class="li">HTTP method to perform</li>
+<li class="li">Request URI</li>
+</ul>
+</li>
+<li class="li">The action then matches the API by matching the extracted information against the information of
+all available APIs in the API collection.</li>
+<li class="li">When multiple APIs are matched, select the API with the longest base path.</li>
+</ol>
+</div>
+<div class="p">The following example shows an API collection with five API entries available through different
+base paths. The HTTP method that is extracted from the API request is <samp class="ph codeph">POST</samp>. The
+request URI with routing prefix excluded is <samp class="ph codeph">/resource</samp>. Although both A and D in the
+following table are matched, D is selected because the base path of D is longer. <div class="tablenoborder"><table cellpadding="4" cellspacing="0" summary="" id="apigw_apirequestrouting_apirouting__table_sjs_y1b_gy" class="table" rules="all" frame="border" border="1"><caption><span class="tablecap">Table 1. API routing example</span></caption><thead class="thead" align="left"><tr class="row"><th class="entry thleft" valign="top" width="20%" id="d4473e55">Entry</th>
+<th class="entry thleft" valign="top" width="20%" id="d4473e57">API name</th>
+<th class="entry thleft" valign="top" width="20%" id="d4473e59">Base path</th>
+<th class="entry thleft" valign="top" width="20%" id="d4473e61">Operation path</th>
+<th class="entry thleft" valign="top" width="20%" id="d4473e63">Operation</th>
+</tr>
+</thead>
+<tbody class="tbody"><tr class="row"><td class="entry" valign="top" width="20%" headers="d4473e55 ">A</td>
+<td class="entry" valign="top" width="20%" headers="d4473e57 ">X</td>
+<td class="entry" valign="top" width="20%" headers="d4473e59 "><samp class="ph codeph">/</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e61 "><samp class="ph codeph">/resource</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e63 "><samp class="ph codeph">POST</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d4473e55 ">B</td>
+<td class="entry" valign="top" width="20%" headers="d4473e57 ">X</td>
+<td class="entry" valign="top" width="20%" headers="d4473e59 "><samp class="ph codeph">/</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e61 "><samp class="ph codeph">/resource/{id}</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e63 "><samp class="ph codeph">GET</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d4473e55 ">C</td>
+<td class="entry" valign="top" width="20%" headers="d4473e57 ">Y</td>
+<td class="entry" valign="top" width="20%" headers="d4473e59 "><samp class="ph codeph">/resource</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e61 "><samp class="ph codeph">/101</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e63 "><samp class="ph codeph">GET</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d4473e55 ">D</td>
+<td class="entry" valign="top" width="20%" headers="d4473e57 ">Y</td>
+<td class="entry" valign="top" width="20%" headers="d4473e59 "><samp class="ph codeph">/resource</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e61 "><samp class="ph codeph">/</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e63 "><samp class="ph codeph">POST</samp></td>
+</tr>
+<tr class="row"><td class="entry" valign="top" width="20%" headers="d4473e55 ">E</td>
+<td class="entry" valign="top" width="20%" headers="d4473e57 ">Y</td>
+<td class="entry" valign="top" width="20%" headers="d4473e59 "><samp class="ph codeph">/resource</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e61 "><samp class="ph codeph">/{count}</samp></td>
+<td class="entry" valign="top" width="20%" headers="d4473e63 "><samp class="ph codeph">GET</samp></td>
+</tr>
+</tbody>
+</table>
+</div>
+The output of the API routing action is an API that is described by the API name, path name,
+and operation name. The API processing then proceeds to the client identification phase. If no API
+is matched, the request is rejected.</div>
+<div class="p">In addition, the following rules apply:<ul class="ul"><li class="li">The action selects the exactly matched candidate instead of the regex matched candidate. For
+example, if the parameter <samp class="ph codeph">{count}</samp> in the operation path of E is
+<samp class="ph codeph">101</samp>, a request with URL <samp class="ph codeph">http://&lt;host&gt;/resource/101</samp> matches C
+and E. However, C is selected because C is the exact match.</li>
+<li class="li">When the target API operation is <samp class="ph codeph">POST</samp>, the action checks whether the consumable
+content types are defined at the API and operation level. If the consumable types are defined, the
+action then examines the content type of the incoming request and drops the candidates whose
+consumable types do not match the content type of the request.</li>
+</ul>
+</div>
+</div>
+<div class="related-links">
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_apirequestrouting_apiprocessingrule.html" title="After an API collection is matched, the API Gateway triggers the API processing rule of the collection to match the target API, enforce the constraints to execute the target API operation, prepare the context for the running of the operation, and execute the assembly rule of the API to respond to the request.">Request processing</a></div>
+</div>
+</div></div></body>
+</html>

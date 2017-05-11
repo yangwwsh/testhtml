@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<meta name="copyright" content="© Copyright IBM Corporation 2017" />
+<meta name="DC.Rights.Owner" content="© Copyright IBM Corporation 2017" />
+<meta name="security" content="public" />
+<meta name="Robots" content="index,follow" />
+<meta name="DC.Type" content="concept" />
+<meta name="DC.Title" content="API security" />
+<meta name="abstract" content="API Gateway allows you to secure your APIs through API key, basic authentication, and OAuth security schemes." />
+<meta name="Description" content="API Gateway allows you to secure your APIs through API key, basic authentication, and OAuth security schemes." />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringapi.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringsecurityrequirements.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_securitydefinitions_apikey.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_securitydefinitions_basicauth.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_securitydefinitions_oauth.html" />
+<meta name="DC.Relation" scheme="URI" content="apigw_configuringldapregistry.html" />
+<meta name="DC.Date" scheme="iso8601" content="2017-05-11" />
+<meta name="DC.Format" content="XHTML" />
+<meta name="DC.Identifier" content="apigw_securitydefinitions" />
+<meta name="DC.Language" content="en-us" />
+<meta name="IBM.Country" content="ZZ" />
+<!-- Licensed Materials - Property of IBM -->
+<!-- US Government Users Restricted Rights -->
+<!-- Use, duplication or disclosure restricted by -->
+<!-- GSA ADP Schedule Contract with IBM Corp. -->
+<link rel="stylesheet" type="text/css" href="./ibmdita.css" />
+<link rel="Start" href="apigw_configuringapi.html" />
+<title>API security</title>
+</head>
+<body id="apigw_securitydefinitions"><div role="main">
+<h1 class="title topictitle1">API security<span class="ph"><img src="./7.6.0.gif" alt="7.6.0" /><img src="./end.gif" alt="" /></span></h1>
+<div class="body conbody"><p class="shortdesc"><span class="ph">API Gateway</span> allows you to secure your APIs through API
+key, basic authentication, and OAuth security schemes.</p>
+<div class="p">You can declare the available security schemes to be used in your APIs by defining security
+definitions. A security definition provides details for each scheme. The <span class="ph">API Gateway</span> supports the following types of security definition:<dl class="dl"><dt class="dt dlterm">API key</dt>
+<dd class="dd">An API key security definition defines the credentials that an API requester must provide to the
+<span class="ph">API Gateway</span> to identify itself when the requester calls the API
+operations.</dd>
+<dt class="dt dlterm">Basic authentication</dt>
+<dd class="dd">A basic authentication security definition defines an authentication URL or an LDAP user
+registry to authenticate accesses to APIs. When you use basic authentication, the API client must
+provide a valid user name and password in the request.</dd>
+<dt class="dt dlterm">OAuth</dt>
+<dd class="dd">An OAuth security definition defines settings that control the access to APIs through the OAuth
+standard. By using an OAuth token, users can grant the API requester to access their information
+that is stored with another service provider without sharing their personal credentials.</dd>
+</dl>
+</div>
+<div class="p">A security definition is not enforced unless you add the security definition as a security
+requirement at the API-level or the operation-level.<ul class="ul"><li class="li">API-level security requirements are enforced on the API as a whole. By default, the security
+requirements are applied to all operations in the API. </li>
+<li class="li">Operation-level security requirements override the API-level security requirements.</li>
+</ul>
+</div>
+<p class="p">An API or operation can have one or more security requirements. When multiple security
+requirements are configured, the API request needs to pass only the security checks that are defined
+by one of these system requirements. A security requirement comprises one or more security
+definitions. When multiple security definitions are specified, the API request must pass all
+security checks that are defined by the security definitions.</p>
+<div class="p">The following high-level procedure shows how to secure your APIs and operations:<ol class="ol"><li class="li">Define security definitions that are available to be used in your APIs.</li>
+<li class="li">For each API to secure, configure the security requirements at the API-level.</li>
+<li class="li">For operations that have operation-specific security requirements instead of inheriting the
+API-level security requirements, configure the security requirements at the operation-level.</li>
+</ol>
+</div>
+</div>
+<div class="related-links">
+<ul class="ullinks">
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringsecurityrequirements.html">Creating a security requirement</a></span><br />
+An API security requirement defines the required security checks that an API request must
+pass to call the API or operation.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_securitydefinitions_apikey.html">Creating an API key security definition</a></span><br />
+Create an API key security definition to define the credentials that an API client must
+provide to the <span class="ph">DataPower Gateway</span> to access an
+API.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_securitydefinitions_basicauth.html">Creating a basic authentication security definition</a></span><br />
+Create a basic authentication security definition to specify the authentication URL or
+LDAP user registry to authenticate accesses to APIs. </li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_securitydefinitions_oauth.html">Creating an OAuth security definition</a></span><br />
+Create an OAuth security definition to control accesses to an API through the OAuth
+authorization standard.</li>
+<li class="link ulchildlink"><span class="ulchildlinktext"><a href="apigw_configuringldapregistry.html">Creating an API LDAP registry</a></span><br />
+Create an API LDAP registry to define the LDAP server to authenticate incoming API
+requests.</li>
+</ul>
+
+<div class="familylinks">
+<div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="apigw_configuringapi.html" title="The DataPower Gateway stores each API as an API definition configuration. To develop an API, create an API definition.">Developing APIs</a></div>
+</div>
+</div></div></body>
+</html>

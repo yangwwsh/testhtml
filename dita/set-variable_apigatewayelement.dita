@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN"
+ "reference.dtd">
+<reference id="set-variable_apigatewayelement" xml:lang="en-us">
+<title><codeph>apim:set-variable</codeph><ph rev="rev760"/></title>
+<shortdesc>Assigns a value to an API context variable.</shortdesc>
+<refbody>
+<section>
+<title>Namespace declaration</title>
+<sl>
+<sli><codeph>xmlns:apim="http://www.ibm.com/apimanagement"</codeph></sli>
+<sli><codeph>extension-element-prefixes="apim"</codeph></sli>
+</sl>
+</section>
+<refsyn>
+<title>Syntax</title>
+<codeblock>&lt;apim:set-variable
+  name="<varname>name</varname>"
+  value="<varname>value</varname>"/&gt;</codeblock>
+</refsyn>
+<section>
+<title>Attributes</title>
+<dl>
+<dlentry>
+<dt><codeph>name="<varname>name</varname>"</codeph></dt>
+<dd>The <codeph>xs:string</codeph> that specifies the name of the API context variable.</dd>
+</dlentry>
+<dlentry>
+<dt><codeph>value="<varname>value</varname>"</codeph></dt>
+<dd>Specifies the value of the API context variable.</dd>
+</dlentry>
+</dl>
+</section>
+<section>
+<title>Guidelines</title>
+<p>The <codeph>apim:set-variable</codeph> extension element assigns a value to an API context
+variable.</p>
+</section>
+<example>
+<title>Example</title>
+<codeblock>&lt;xsl:template match="/">
+    &lt;apim:set-variable name="'my.orderDate'" value="./order/@date"/>
+&lt;/xsl:template></codeblock>
+</example>
+</refbody>
+</reference>

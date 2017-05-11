@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Arbortext, Inc., 1988-2011, v.4002-->
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+ "concept.dtd">
+<concept id="gatewayscript_model" xml:lang="en-us">
+<title><ph conref="apigw_conref.dita#common/gws"/> APIs for API management<ph rev="rev760"/></title>
+<shortdesc>The <ph conref="apigw_conref.dita#common/gws"/> programming in <ph
+conref="apigw_conref.dita#common/apigw"/> follows the programming guidelines of the <ph
+conref="apigw_conref.dita#common/idag2nd"/> Gateway programming model.</shortdesc>
+<conbody>
+<p><ph conref="apigw_conref.dita#common/gws"/> APIs are used for the assembly <ph
+conref="apigw_conref.dita#common/gws"/> action of the <ph conref="apigw_conref.dita#common/apigw"/>
+service.  Only the following object and modules are applicable: <!--
+1. F: Where items are specific to API Gateway (which we know is for APIc integration, but really for any API integration), you need to discuss how the GWS action differs from that used by all other services e.g. MPGW service. Note that this would be no different than if an existing processing action worked different among IDG services.
+2. Herein, I've mentioned "only the following object and modules", which means other objects and modules not in the following list are NOT applicable for APIGW service => so it seemt the "Contexts and sessions topic" is NOT affected.--><ul>
+<li><codeph>apim</codeph> module</li>
+<li><codeph>context</codeph> object for the assembly <ph conref="apigw_conref.dita#common/gws"/>
+action</li>
+<li><codeph>fs</codeph> module </li>
+<li><codeph>multistep</codeph> module </li>
+<li><codeph>service-metadata</codeph> module </li>
+<!--[ add more items if other modules or objects are supported in future, convenient for maintenance ]-->
+</ul></p>
+</conbody>
+<related-links>
+<link format="html" href="gatewayscript_model.html" scope="peer">
+<linktext>Gateway programming model and GatewayScript</linktext>
+</link>
+<link href="multistep_js.html" format="html" scope="peer">
+<linktext><codeph>multistep</codeph> module </linktext>
+</link>
+<link href="fs_js.html" format="html" scope="peer">
+<linktext><codeph>fs</codeph> module</linktext>
+</link>
+<link href="service-metadata_js.html" format="html" scope="peer">
+<linktext><codeph>service-metadata</codeph> module</linktext>
+</link>
+</related-links>
+</concept>
